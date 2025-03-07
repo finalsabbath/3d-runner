@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="3d-runner"
+run/main_scene="uid://o13dbq1lmrfm"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"

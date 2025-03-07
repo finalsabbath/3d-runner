@@ -1,4 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://o13dbq1lmrfm"]
+[gd_scene load_steps=8 format=3 uid="uid://o13dbq1lmrfm"]
+
+[ext_resource type="Script" uid="uid://dcbnisljy5htt" path="res://scenes/player.gd" id="1_nnsk1"]
+[ext_resource type="PackedScene" uid="uid://0sprg6vnoira" path="res://scenes/terrain_controller.tscn" id="2_rwgxs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e5uuo"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -13,6 +16,10 @@ sky = SubResource("Sky_nnsk1")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e5uuo"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nnsk1"]
+
 [node name="World" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -21,3 +28,19 @@ environment = SubResource("Environment_rwgxs")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+script = ExtResource("1_nnsk1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_e5uuo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("CapsuleMesh_nnsk1")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.989137, 0.146998, 0, -0.146998, 0.989137, 0, 1.41357, 1.31969)
+fov = 100.0
+
+[node name="TerrainController" parent="." instance=ExtResource("2_rwgxs")]
