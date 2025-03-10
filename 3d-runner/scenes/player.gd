@@ -30,7 +30,8 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		target_velocity.y = jump_impulse
 	
-	if is_on_floor() and Input.is_action_just_pressed("slide") and slide_timer.is_stopped()==true and !sliding:
+	#this is bad, if its going to stay make it better
+	if is_on_floor() and Input.is_action_just_pressed("slide") and !sliding:
 		sliding = true
 		collision_shape_3d.scale = slide_scale
 		camera_3d.position.y = camera_3d.position.y/2
@@ -40,13 +41,14 @@ func _physics_process(delta: float) -> void:
 		target_velocity.x = 0
 	velocity = target_velocity
 	move_and_slide()
-#
-	var collision = get_last_slide_collision()
-	if collision:
-		var death_blocks = get_tree().get_nodes_in_group("death_block")
-		var collider = collision.get_collider()
-		if collider in death_blocks:
-			EventBus.death_block_hit.emit()
+#	
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		if collision:
+			var death_blocks = get_tree().get_nodes_in_group("death_block")
+			var collider = collision.get_collider()
+			if collider in death_blocks:
+				EventBus.death_block_hit.emit()
 			
 
 func _on_slide_timeout() -> void:
