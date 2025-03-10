@@ -26,7 +26,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	_progress_terrain(delta)
 	GameStats.distance += GameStats.terrain_velocity * delta
-	GameStats.terrain_velocity += delta/2
+	GameStats.terrain_velocity += (delta*delta) * 10
 
 
 func _init_blocks(number_of_blocks: int) -> void:

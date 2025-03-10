@@ -6,7 +6,9 @@ extends CharacterBody3D
 ## Speed of character movement
 var speed = 5.0
 @onready var world_environment: WorldEnvironment = $"../WorldEnvironment"
-@onready var audio_stream_player: AudioStreamPlayer = $"../AudioStreamPlayer"
+@onready var music: AudioStreamPlayer = $"../Music"
+@onready var pulse_audio: AudioStreamPlayer3D = $"../Pulse"
+
 
 var pulse: float = 0.0
 var pulse_up: bool = true
@@ -42,7 +44,7 @@ func _pulse(delta: float) -> void:
 	
 	if pulse > 2:
 		pulse_up = false
-		audio_stream_player.play()
+		pulse_audio.play()
 	elif pulse < 1:
 		pulse_up = true
 
