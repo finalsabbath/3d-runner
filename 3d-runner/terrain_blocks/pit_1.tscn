@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm0jphsphjj5h"]
+
+[ext_resource type="Script" uid="uid://cf86rattc3vm1" path="res://terrain_scripts/pit_1.gd" id="1_611o0"]
+[ext_resource type="PackedScene" uid="uid://dy7246qt6328y" path="res://scenes/player.tscn" id="2_328rn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g74f0"]
+size = Vector3(20, 0, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_611o0"]
+size = Vector3(20, 0, 20)
+
+[node name="Pit1" type="Node3D"]
+script = ExtResource("1_611o0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="Collision" type="CollisionShape3D" parent="StaticBody3D"]
+unique_name_in_owner = true
+shape = SubResource("BoxShape3D_g74f0")
+
+[node name="Mesh" type="MeshInstance3D" parent="StaticBody3D"]
+unique_name_in_owner = true
+mesh = SubResource("BoxMesh_611o0")
+
+[node name="Player" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.325, 0)
