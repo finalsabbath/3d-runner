@@ -20,5 +20,8 @@ func _physics_process(_delta: float) -> void:
 #
 	var collision = get_last_slide_collision()
 	if collision:
-		print("Collided with: ", collision.get_collider())
-		get_tree().quit()
+		var death_blocks = get_tree().get_nodes_in_group("death_block")
+		var collider = collision.get_collider()
+		print("Collided with: ", collider)
+		if collider in death_blocks:
+			get_tree().quit()
