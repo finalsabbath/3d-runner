@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://o13dbq1lmrfm"]
+[gd_scene load_steps=10 format=3 uid="uid://o13dbq1lmrfm"]
 
 [ext_resource type="Script" uid="uid://dcbnisljy5htt" path="res://scenes/player.gd" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://0sprg6vnoira" path="res://scenes/terrain_controller.tscn" id="2_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://b001uqla7yi5b" path="res://scenes/ui.tscn" id="3_4wyf3"]
+[ext_resource type="AudioStream" uid="uid://d2jfnqyxav07x" path="res://assets/Drone_doom.wav" id="4_k0juu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e5uuo"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -53,5 +54,8 @@ fov = 100.0
 autostart = true
 
 [node name="UI" parent="." instance=ExtResource("3_4wyf3")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_k0juu")
 
 [connection signal="timeout" from="Timer" to="Player" method="_on_timer_timeout"]

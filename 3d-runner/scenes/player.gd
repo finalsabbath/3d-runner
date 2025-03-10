@@ -6,6 +6,7 @@ extends CharacterBody3D
 ## Speed of character movement
 var speed = 5.0
 @onready var world_environment: WorldEnvironment = $"../WorldEnvironment"
+@onready var audio_stream_player: AudioStreamPlayer = $"../AudioStreamPlayer"
 
 var pulse: float = 0.0
 var pulse_up: bool = true
@@ -35,13 +36,14 @@ func _physics_process(delta: float) -> void:
 func _pulse(delta: float) -> void:
 	world_environment.environment.background_energy_multiplier = pulse
 	if pulse_up: 
-		pulse +=sin(delta)
+		pulse +=(GameStats.terrain_velocity * delta) * delta
 	else: 
-		pulse -= sin(delta)
+		pulse -= (GameStats.terrain_velocity * delta) * delta
 	
 	if pulse > 2:
 		pulse_up = false
-	elif pulse < 0:
+		audio_stream_player.play()
+	elif pulse < 1:
 		pulse_up = true
 
 
