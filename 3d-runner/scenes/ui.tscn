@@ -30,3 +30,48 @@ text = "Speed: 0"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Distance: 0"
+
+[node name="EndScreen" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 259.0
+offset_top = 147.0
+offset_right = 896.0
+offset_bottom = 578.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndScreen"]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 115.0
+offset_right = 249.0
+offset_bottom = 155.0
+
+[node name="MaxSpeed" type="Label" parent="EndScreen/VBoxContainer"]
+layout_mode = 2
+text = "Max Speed Achieved: 0"
+
+[node name="TotalDistance" type="Label" parent="EndScreen/VBoxContainer"]
+layout_mode = 2
+text = "Total Distance Travelled: 0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EndScreen"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 0
+offset_left = 233.0
+offset_top = 302.0
+offset_right = 360.0
+offset_bottom = 342.0
+theme_override_constants/separation = 50
+
+[node name="TryAgain" type="Button" parent="EndScreen/HBoxContainer"]
+process_mode = 3
+layout_mode = 2
+text = "Try Again"
+
+[node name="Quit" type="Button" parent="EndScreen/HBoxContainer"]
+process_mode = 3
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="EndScreen/HBoxContainer/TryAgain" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="EndScreen/HBoxContainer/Quit" to="." method="_on_quit_pressed"]

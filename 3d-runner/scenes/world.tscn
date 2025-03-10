@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://o13dbq1lmrfm"]
+[gd_scene load_steps=12 format=3 uid="uid://o13dbq1lmrfm"]
 
 [ext_resource type="Script" uid="uid://dcbnisljy5htt" path="res://scenes/player.gd" id="1_nnsk1"]
+[ext_resource type="Script" uid="uid://4i866fvgfnrr" path="res://scenes/world.gd" id="1_qfnet"]
 [ext_resource type="PackedScene" uid="uid://0sprg6vnoira" path="res://scenes/terrain_controller.tscn" id="2_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://b001uqla7yi5b" path="res://scenes/ui.tscn" id="3_4wyf3"]
 [ext_resource type="AudioStream" uid="uid://b6chy4dblnhb" path="res://assets/Sketchbook 2024-08-07.ogg" id="4_71j4m"]
@@ -27,6 +28,7 @@ volumetric_fog_albedo = Color(0.335501, 0.105155, 0.120078, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_nnsk1"]
 
 [node name="World" type="Node3D"]
+script = ExtResource("1_qfnet")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rwgxs")
@@ -51,11 +53,6 @@ fov = 100.0
 
 [node name="TerrainController" parent="." instance=ExtResource("2_rwgxs")]
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
-[node name="UI" parent="." instance=ExtResource("3_4wyf3")]
-
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_71j4m")
 volume_db = -15.929
@@ -71,4 +68,4 @@ max_db = 6.0
 max_distance = 273.07
 bus = &"SFX"
 
-[connection signal="timeout" from="Timer" to="Player" method="_on_timer_timeout"]
+[node name="UI" parent="." instance=ExtResource("3_4wyf3")]
