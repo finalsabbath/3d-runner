@@ -4,7 +4,7 @@ extends CharacterBody3D
 ##
 
 ## Speed of character movement
-const SPEED = 5.0
+var speed = 5.0
 @onready var world_environment: WorldEnvironment = $"../WorldEnvironment"
 
 var pulse: float = 0.0
@@ -18,9 +18,9 @@ func _physics_process(delta: float) -> void:
 	# We'll ignore up and down input, just using side to side
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x = direction.x * SPEED
+		velocity.x = direction.x * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
 #
@@ -33,7 +33,6 @@ func _physics_process(delta: float) -> void:
 			get_tree().quit()
 
 func _pulse(delta: float) -> void:
-	print("Pulse: " + str(pulse))
 	world_environment.environment.background_energy_multiplier = pulse
 	if pulse_up: 
 		pulse +=sin(delta)
