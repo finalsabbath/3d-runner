@@ -44,7 +44,7 @@ func _progress_terrain(delta: float) -> void:
 		first_terrain.queue_free()
 
 func _append_to_far_edge(target_block: MeshInstance3D, appending_block: MeshInstance3D) -> void:
-	appending_block.position.z = target_block.position.z - target_block.mesh.size.y/2 - appending_block.mesh.size.y/2
+	appending_block.position.z = (target_block.position.z+5) - target_block.mesh.size.y/2 - appending_block.mesh.size.y/2
 
 func _load_terrain_scenes(target_path: String) -> void:
 	var dir = DirAccess.open(target_path)
