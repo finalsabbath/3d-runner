@@ -6,7 +6,6 @@ class_name World
 @onready var pulse_audio: AudioStreamPlayer3D = $Pulse
 @onready var ui: UI = $UI
 
-
 var pulse: float = 0.0
 var pulse_up: bool = true
 
@@ -32,7 +31,7 @@ func _pulse(delta: float) -> void:
 	else: 
 		pulse -= (GameStats.terrain_velocity * delta) * delta
 	
-	if pulse > 2:
+	if pulse > 2.5:
 		pulse_up = false
 		pulse_audio.play()
 	elif pulse < 1:
