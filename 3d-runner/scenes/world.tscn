@@ -11,10 +11,13 @@ ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 sky_material = SubResource("ProceduralSkyMaterial_e5uuo")
 
 [sub_resource type="Environment" id="Environment_rwgxs"]
-background_mode = 2
+background_mode = 1
+background_color = Color(0.314009, 1.3266e-06, 8.90419e-07, 1)
 sky = SubResource("Sky_nnsk1")
 tonemap_mode = 2
 glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.335501, 0.105155, 0.120078, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e5uuo"]
 

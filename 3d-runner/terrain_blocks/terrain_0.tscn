@@ -1,9 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://0ve0hboy17ae"]
+[gd_scene load_steps=10 format=3 uid="uid://0ve0hboy17ae"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_10aqq"]
+albedo_color = Color(0.103744, 0.103744, 0.103744, 1)
+metallic = 1.0
+normal_enabled = true
+uv1_scale = Vector3(8, 8, 8)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rwgxs"]
+material = SubResource("StandardMaterial3D_10aqq")
 size = Vector2(100, 20)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5ig4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e5uuo"]
 
@@ -14,7 +19,11 @@ map_width = 22
 map_depth = 10
 map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5ig4"]
+albedo_color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_bqxnk"]
+material = SubResource("StandardMaterial3D_r5ig4")
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_bqxnk"]
 map_width = 22
@@ -26,7 +35,6 @@ data = PackedVector3Array(50, 0, 10, -50, 0, 10, 50, 0, -10, -50, 0, 10, -50, 0,
 
 [node name="Terrain_0" type="MeshInstance3D"]
 mesh = SubResource("PlaneMesh_rwgxs")
-surface_material_override/0 = SubResource("StandardMaterial3D_r5ig4")
 
 [node name="Block_0" type="StaticBody3D" parent="." groups=["death_block"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.672638, 0.5, -8.40786)
