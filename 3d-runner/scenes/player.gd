@@ -36,9 +36,9 @@ func _pulse(delta: float) -> void:
 	print("Pulse: " + str(pulse))
 	world_environment.environment.background_energy_multiplier = pulse
 	if pulse_up: 
-		pulse +=sin(2 * delta)
+		pulse +=sin(delta)
 	else: 
-		pulse -= sin(2 * delta)
+		pulse -= sin(delta)
 	
 	if pulse > 2:
 		pulse_up = false
