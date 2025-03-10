@@ -1,4 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://0ve0hboy17ae"]
+[gd_scene load_steps=9 format=3 uid="uid://0ve0hboy17ae"]
+
+[ext_resource type="PackedScene" uid="uid://d3fxu2yqfp32w" path="res://obstacles/block.tscn" id="1_bqxnk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_10aqq"]
 albedo_color = Color(0.103744, 0.103744, 0.103744, 1)
@@ -9,10 +11,6 @@ uv1_scale = Vector3(8, 8, 8)
 [sub_resource type="PlaneMesh" id="PlaneMesh_rwgxs"]
 material = SubResource("StandardMaterial3D_10aqq")
 size = Vector2(20, 20)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_e5uuo"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_nnsk1"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_r5ig4"]
 map_width = 22
@@ -36,32 +34,8 @@ data = PackedVector3Array(50, 0, 10, -50, 0, 10, 50, 0, -10, -50, 0, 10, -50, 0,
 [node name="Terrain_0" type="MeshInstance3D"]
 mesh = SubResource("PlaneMesh_rwgxs")
 
-[node name="Block_0" type="StaticBody3D" parent="." groups=["death_block"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.672638, 0.5, -8.40786)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Block_0"]
-shape = SubResource("BoxShape3D_e5uuo")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Block_0"]
-mesh = SubResource("BoxMesh_nnsk1")
-
-[node name="Block_1" type="StaticBody3D" parent="." groups=["death_block"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.28815, 0.5, -5.71401)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Block_1"]
-shape = SubResource("BoxShape3D_e5uuo")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Block_1"]
-mesh = SubResource("BoxMesh_nnsk1")
-
-[node name="Block_2" type="StaticBody3D" parent="." groups=["death_block"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58954, 0.5, -1.33098)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Block_2"]
-shape = SubResource("BoxShape3D_e5uuo")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Block_2"]
-mesh = SubResource("BoxMesh_nnsk1")
+[node name="Block_0" parent="." instance=ExtResource("1_bqxnk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17465, 0.5, -8.40786)
 
 [node name="Wall_L" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 4.53009, 4.84556, -1.33098)

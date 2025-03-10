@@ -51,6 +51,10 @@ mesh = SubResource("CapsuleMesh_nnsk1")
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 0.999475, 0.032405, 0, -0.032405, 0.999475, 0, 1.41357, -0.214253)
 
+[node name="Slide" type="Timer" parent="Player"]
+wait_time = 2.0
+one_shot = true
+
 [node name="TerrainController" parent="." instance=ExtResource("2_rwgxs")]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
@@ -69,3 +73,5 @@ max_distance = 273.07
 bus = &"SFX"
 
 [node name="UI" parent="." instance=ExtResource("3_4wyf3")]
+
+[connection signal="timeout" from="Player/Slide" to="Player" method="_on_slide_timeout"]

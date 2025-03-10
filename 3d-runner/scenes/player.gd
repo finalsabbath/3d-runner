@@ -1,10 +1,18 @@
 extends CharacterBody3D
 
+const SLIDE_SCALE: float = 0.5
+
 @export var speed = 5.0
 @export var fall_acceleration = 75
 @export var jump_impulse = 20
+@onready var slide_timer: Timer = $Slide
+@onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
+@onready var camera_3d: Camera3D = $Camera3D
+
+var slide_scale = Vector3(SLIDE_SCALE,SLIDE_SCALE,SLIDE_SCALE)
 
 var target_velocity = Vector3.ZERO
+var sliding: bool = false
 
 func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "ui_up", "ui_down")
@@ -22,6 +30,14 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		target_velocity.y = jump_impulse
 	
+	if is_on_floor() and Input.is_action_just_pressed("slide") and slide_timer.is_stopped()==true and !sliding:
+		sliding = true
+		collision_shape_3d.scale = slide_scale
+		camera_3d.position.y = camera_3d.position.y/2
+		slide_timer.start()
+		
+	if sliding:
+		target_velocity.x = 0
 	velocity = target_velocity
 	move_and_slide()
 #
@@ -32,3 +48,8 @@ func _physics_process(delta: float) -> void:
 		if collider in death_blocks:
 			EventBus.death_block_hit.emit()
 			
+
+func _on_slide_timeout() -> void:
+	sliding = false
+	collision_shape_3d.scale = Vector3(1,1,1)
+	camera_3d.position.y = camera_3d.position.y*2
