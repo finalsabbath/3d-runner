@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bmvwuudi0haha" path="res://obstacles/barrier.tscn" id="2_10aqq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_10aqq"]
-albedo_color = Color(0.103744, 0.103744, 0.103744, 1)
+albedo_color = Color(0.28485, 0.28485, 0.28485, 1)
 metallic = 1.0
 normal_enabled = true
 uv1_scale = Vector3(8, 8, 8)

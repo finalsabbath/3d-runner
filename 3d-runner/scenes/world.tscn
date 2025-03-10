@@ -16,13 +16,13 @@ ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 sky_material = SubResource("ProceduralSkyMaterial_e5uuo")
 
 [sub_resource type="Environment" id="Environment_rwgxs"]
-background_mode = 1
 background_color = Color(0.314009, 1.3266e-06, 8.90419e-07, 1)
 sky = SubResource("Sky_nnsk1")
 tonemap_mode = 2
 glow_enabled = true
 volumetric_fog_enabled = true
-volumetric_fog_albedo = Color(0.335501, 0.105155, 0.120078, 1)
+volumetric_fog_albedo = Color(0.245606, 0.06798, 0.0795562, 1)
+volumetric_fog_ambient_inject = 4.16
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_qfnet")
@@ -31,8 +31,8 @@ script = ExtResource("1_qfnet")
 environment = SubResource("Environment_rwgxs")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0.104058, 0.332965, 0.93718, -0.489052, 0.837636, -0.243297, 0, 12.6459, -43.6037)
-light_color = Color(0.654232, 0.654232, 0.654232, 1)
+transform = Transform3D(-0.999314, 0.0319373, 0.0187667, -0.0202584, -0.895333, 0.444936, 0.0310125, 0.44425, 0.895366, 0, 28.822, 27.0058)
+light_color = Color(0.780119, 0.171153, 0.219762, 1)
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_qfnet")]
@@ -62,3 +62,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 
 [node name="Wall2" parent="." instance=ExtResource("7_i7141")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5, 0, -174.48)
+
+[node name="Wall3" parent="." instance=ExtResource("7_i7141")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.237, -3.61528, -161.681)
