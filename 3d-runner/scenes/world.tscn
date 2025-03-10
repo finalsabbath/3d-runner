@@ -34,7 +34,8 @@ script = ExtResource("1_qfnet")
 environment = SubResource("Environment_rwgxs")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0.104058, 0.332965, 0.93718, -0.489052, 0.837636, -0.243297, 0, 12.6459, -43.6037)
+light_color = Color(0.654232, 0.654232, 0.654232, 1)
 shadow_enabled = true
 
 [node name="Player" type="CharacterBody3D" parent="."]
@@ -49,7 +50,6 @@ mesh = SubResource("CapsuleMesh_nnsk1")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 0.999475, 0.032405, 0, -0.032405, 0.999475, 0, 1.41357, -0.214253)
-fov = 100.0
 
 [node name="TerrainController" parent="." instance=ExtResource("2_rwgxs")]
 
