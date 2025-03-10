@@ -5,8 +5,14 @@ extends CharacterBody3D
 
 ## Speed of character movement
 const SPEED = 5.0
+@onready var world_environment: WorldEnvironment = $"../WorldEnvironment"
 
-func _physics_process(_delta: float) -> void:
+var pulse: float = 0.0
+var pulse_up: bool = true
+
+func _physics_process(delta: float) -> void:
+	
+	_pulse(delta)
 
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	# We'll ignore up and down input, just using side to side
@@ -25,3 +31,20 @@ func _physics_process(_delta: float) -> void:
 		print("Collided with: ", collider)
 		if collider in death_blocks:
 			get_tree().quit()
+
+func _pulse(delta: float) -> void:
+	print("Pulse: " + str(pulse))
+	world_environment.environment.background_energy_multiplier = pulse
+	if pulse_up: 
+		pulse +=sin(2 * delta)
+	else: 
+		pulse -= sin(2 * delta)
+	
+	if pulse > 2:
+		pulse_up = false
+	elif pulse < 0:
+		pulse_up = true
+
+
+func _on_timer_timeout() -> void:
+	pass

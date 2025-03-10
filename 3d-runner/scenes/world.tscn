@@ -47,3 +47,8 @@ transform = Transform3D(1, 0, 0, 0, 0.989137, 0.146998, 0, -0.146998, 0.989137, 
 fov = 100.0
 
 [node name="TerrainController" parent="." instance=ExtResource("2_rwgxs")]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="Player" method="_on_timer_timeout"]
