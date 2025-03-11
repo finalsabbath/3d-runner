@@ -18,9 +18,3 @@ mesh = SubResource("CapsuleMesh_nnsk1")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.999668, -0.0257583, 0, 0.0257583, 0.999668, 0, 0.572753, 0.215651)
-
-[node name="Slide" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
-[connection signal="timeout" from="Slide" to="." method="_on_slide_timeout"]

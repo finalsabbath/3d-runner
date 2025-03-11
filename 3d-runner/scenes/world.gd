@@ -24,7 +24,6 @@ func _ready() -> void:
 	_set_level()
 
 func _physics_process(delta: float) -> void:
-	#_pulse(delta)
 	var master_bus_volume = (AudioServer.get_bus_peak_volume_left_db(0,0) + AudioServer.get_bus_peak_volume_right_db(0,0)) / 2
 	world_environment.environment.background_energy_multiplier = (30 + master_bus_volume) * (delta * 5) -1
 	_check_distance_milestones()

@@ -8,14 +8,10 @@ const STARTER_BLOCKS: int = 1
 
 var count_starter_blocks = 0
 
-## Holds the catalog of loaded terrian block scenes
 var TerrainBlocks: Array = []
 var Obstacles: Array = []
-## The set of terrian blocks which are currently rendered to viewport
 var terrain_belt: Array[Node3D] = []
-## The number of blocks to keep rendered to the viewport
 @export var num_terrain_blocks = 16
-## Path to directory holding the terrain block scenes
 @export_dir var terrian_blocks_path = "res://terrain_blocks"
 @export_dir var obstacles_path = "res://obstacles"
 
