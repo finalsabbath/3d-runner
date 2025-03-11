@@ -1,16 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmvwuudi0haha"]
+[gd_scene load_steps=4 format=3 uid="uid://bob7yquw52hvg"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_bqxnk"]
-size = Vector3(0.5, 5, 3)
+[ext_resource type="Script" uid="uid://cdjnqj2wxbska" path="res://obstacle_script/barrier.gd" id="1_oh87s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rrb2v"]
+size = Vector3(8, 10, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_10aqq"]
-size = Vector3(0.5, 5, 3)
+size = Vector3(8, 10, 1)
 
-[node name="Barrier" type="StaticBody3D"]
+[node name="Barrier" type="Node3D" groups=["death_block"]]
+script = ExtResource("1_oh87s")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.12789e-05, -0.0306504, 0)
-shape = SubResource("BoxShape3D_bqxnk")
+[node name="Barrier" type="StaticBody3D" parent="." groups=["death_block"]]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrier" groups=["death_block"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("BoxShape3D_rrb2v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Barrier" groups=["death_block"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 mesh = SubResource("BoxMesh_10aqq")

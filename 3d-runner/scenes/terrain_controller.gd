@@ -16,8 +16,6 @@ var terrain_belt: Array[Node3D] = []
 @export_dir var terrian_blocks_path = "res://terrain_blocks"
 @export_dir var obstacles_path = "res://obstacles"
 
-## Obstacles
-var box_obstacle = load("res://obstacles/block.tscn")
 
 func _ready() -> void:
 	_load_terrain_scenes(terrian_blocks_path)
@@ -60,6 +58,7 @@ func _append_to_far_edge(target_block: Node3D, appending_block: Node3D) -> void:
 
 func _add_obstacles(block: Node3D) -> void:
 	var new_obstacle = Obstacles.pick_random().instantiate()
+	new_obstacle.position.x = _get_obstacle_position(new_obstacle.type)
 	new_obstacle.add_to_group("death_blocks")
 	block.add_child(new_obstacle)
 
@@ -74,3 +73,11 @@ func _load_obstacles_scenes(target_path: String) -> void:
 	for scene_path in dir.get_files():
 		print("Loading obstacle scene: " + target_path + "/" + scene_path)
 		Obstacles.append(load(target_path + "/" + scene_path))
+		
+func _get_obstacle_position(type) -> float:
+	var pos_x: float = 0
+	match type:
+		Enums.ObstacleType.BARRIER:
+			pos_x = randf_range(-4,4)
+	
+	return pos_x

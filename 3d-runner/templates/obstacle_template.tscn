@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://cf3gdlhmo188"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rrb2v"]
-size = Vector3(1, 10, 1)
+size = Vector3(8, 10, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_10aqq"]
-size = Vector3(0.5, 5, 3)
+size = Vector3(8, 10, 1)
 
 [node name="ObstacleTemplate" type="Node3D"]
 
@@ -15,4 +15,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 shape = SubResource("BoxShape3D_rrb2v")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Barrier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 mesh = SubResource("BoxMesh_10aqq")

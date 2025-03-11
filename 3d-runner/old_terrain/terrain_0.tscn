@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://0ve0hboy17ae"]
 
-[ext_resource type="PackedScene" uid="uid://d3fxu2yqfp32w" path="res://obstacles/block.tscn" id="1_yxq4g"]
-[ext_resource type="PackedScene" uid="uid://bmvwuudi0haha" path="res://obstacles/barrier.tscn" id="2_syp07"]
+[ext_resource type="PackedScene" uid="uid://d3fxu2yqfp32w" path="res://old_terrain/block.tscn" id="1_yxq4g"]
+[ext_resource type="PackedScene" uid="uid://bmvwuudi0haha" path="res://old_terrain/barrier.tscn" id="2_syp07"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_10aqq"]
 albedo_color = Color(0.28485, 0.28485, 0.28485, 1)

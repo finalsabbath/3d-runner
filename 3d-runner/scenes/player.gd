@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 const SLIDE_SCALE: float = 0.5
 
-@export var speed = 5.0
+@export var speed = 7.0
 @export var fall_acceleration = 75
 @export var jump_impulse = 20
 @onready var slide_timer: Timer = $Slide
