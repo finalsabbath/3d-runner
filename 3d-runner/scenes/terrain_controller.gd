@@ -2,7 +2,7 @@ extends Node3D
 class_name TerrainController
 
 const TERRAIN_LENGTH: int = 16
-const TERRAIN_WIDTH: int = 12
+const TERRAIN_WIDTH: int = 16
 const VELOCITY_MULT: int = 10
 
 ## Holds the catalog of loaded terrian block scenes
