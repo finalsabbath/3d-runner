@@ -5,6 +5,7 @@ const TERRAIN_LENGTH: int = 16
 const TERRAIN_WIDTH: int = 16
 const VELOCITY_MULT: int = 10
 const MAX_OBSTACLES: int = 3
+const MAX_PITS: int = 3
 const STARTER_BLOCKS: int = 1
 
 var count_starter_blocks = 0
@@ -67,6 +68,7 @@ func _append_to_far_edge(target_block: Node3D, appending_block: Node3D, add_obst
 		_add_obstacles(appending_block)
 
 func _add_obstacles(block: Node3D) -> void:
+	_add_pits(block)
 	for i in range(MAX_OBSTACLES):
 		var new_obstacle = Obstacles.pick_random().instantiate()
 		new_obstacle.position.x = _get_obstacle_position(new_obstacle.type)
@@ -75,6 +77,13 @@ func _add_obstacles(block: Node3D) -> void:
 		print("X pos: " + str(new_obstacle.position.x ))
 		new_obstacle.add_to_group("death_blocks")
 		block.add_child(new_obstacle)
+	
+
+func _add_pits(block: Node3D) -> void:
+	for i in range(MAX_PITS):
+		var remove = randi_range(0,15)
+		var panels = block.get_children()
+		panels[remove].queue_free()
 
 func _load_terrain_scenes(target_path: String) -> void:
 	var dir = DirAccess.open(target_path)
