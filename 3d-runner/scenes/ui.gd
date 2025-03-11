@@ -7,6 +7,8 @@ class_name UI
 @onready var total_distance: Label = $EndScreen/VBoxContainer/TotalDistance
 @onready var end_screen: Panel = $EndScreen
 @onready var end_reason: Label = %EndReason
+@onready var label: Label = $HBoxContainer/Label
+
 
 
 func _physics_process(_delta: float) -> void:

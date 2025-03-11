@@ -31,6 +31,9 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Distance: 0"
 
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+
 [node name="EndScreen" type="Panel" parent="."]
 visible = false
 layout_mode = 0
