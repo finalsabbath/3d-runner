@@ -37,7 +37,7 @@ light_color = Color(0.780119, 0.171153, 0.219762, 1)
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_qfnet")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52962, 0.337935)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21607, 0.337935)
 
 [node name="TerrainController" parent="." instance=ExtResource("2_rwgxs")]
 

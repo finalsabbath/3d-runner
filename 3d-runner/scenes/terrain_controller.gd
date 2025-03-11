@@ -22,18 +22,19 @@ func _physics_process(delta: float) -> void:
 func _init_blocks(number_of_blocks: int) -> void:
 	for block_index in number_of_blocks:
 		var block = TerrainBlocks.pick_random().instantiate()
-		add_child(block)
+		
 		if block_index == 0:
-			block.position.z = block.mesh.mesh.size.y/2
+			block.position.z = 10 #block.mesh.mesh.size.y/2
 		else:
 			_append_to_far_edge(terrain_belt[block_index-1], block)
 		terrain_belt.append(block)
+		add_child(block)
 
 func _progress_terrain(delta: float) -> void:
 	for block in terrain_belt:
 		block.position.z += GameStats.terrain_velocity * delta
 
-	if terrain_belt[0].position.z >= terrain_belt[0].mesh.mesh.size.y/2:
+	if terrain_belt[0].position.z >= 20:
 		var last_terrain = terrain_belt[-1]
 		var first_terrain = terrain_belt.pop_front()
 
@@ -44,8 +45,9 @@ func _progress_terrain(delta: float) -> void:
 		first_terrain.queue_free()
 
 func _append_to_far_edge(target_block: Node3D, appending_block: Node3D) -> void:
-	await appending_block.ready
-	appending_block.position.z = (target_block.position.z+10)   #FIX THIS LATER, WAS = target_block.mesh.mesh.size.z/2 - appending_block.mesh.mesh.size.z/2
+	#await appending_block.ready
+	#appending_block.position.z = target_block.position.z - target_block.mesh.size.y/2 - appending_block.mesh.size.y/2
+	appending_block.position.z = (target_block.position.z) - 20
 	print(appending_block.position.z)
 
 func _load_terrain_scenes(target_path: String) -> void:
