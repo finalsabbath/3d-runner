@@ -5,6 +5,7 @@ class_name UI
 @onready var speed: Label = %Speed
 @onready var max_speed: Label = $EndScreen/VBoxContainer/MaxSpeed
 @onready var total_distance: Label = $EndScreen/VBoxContainer/TotalDistance
+@onready var level: Label = $EndScreen/VBoxContainer/Level
 @onready var end_screen: Panel = $EndScreen
 @onready var end_reason: Label = %EndReason
 @onready var label: Label = $HBoxContainer/Label
@@ -24,6 +25,7 @@ func _on_try_again_pressed() -> void:
 	print("retry button")
 	get_tree().paused = false
 	end_screen.hide()
+	GameStats.current_level = 0
 	EventBus.retry.emit()
 
 func _on_quit_pressed() -> void:
@@ -33,5 +35,6 @@ func show_end_screen(reason: String) -> void:
 	end_reason.text = reason
 	max_speed.text = "Max Speed Achieved: " + str(snappedi(GameStats.terrain_velocity,1))
 	total_distance.text = "Total Distance Travelled: " +  str(snappedi(GameStats.distance,1))
+	level.text = "Level: " + str(GameStats.current_level+1)
 	end_screen.show()
 	

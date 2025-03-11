@@ -4,8 +4,6 @@ class_name TerrainController
 const TERRAIN_LENGTH: int = 16
 const TERRAIN_WIDTH: int = 16
 const VELOCITY_MULT: int = 10
-const MAX_OBSTACLES: int = 3
-const MAX_PITS: int = 3
 const STARTER_BLOCKS: int = 1
 
 var count_starter_blocks = 0
@@ -69,7 +67,7 @@ func _append_to_far_edge(target_block: Node3D, appending_block: Node3D, add_obst
 
 func _add_obstacles(block: Node3D) -> void:
 	_add_pits(block)
-	for i in range(MAX_OBSTACLES):
+	for i in range((GameStats.current_level*2)+1):
 		var new_obstacle = Obstacles.pick_random().instantiate()
 		new_obstacle.position.x = _get_obstacle_position(new_obstacle.type)
 		new_obstacle.position.z += i * 4
@@ -78,7 +76,7 @@ func _add_obstacles(block: Node3D) -> void:
 	
 
 func _add_pits(block: Node3D) -> void:
-	for i in range(MAX_PITS):
+	for i in range((GameStats.current_level*2)+1):
 		var remove = randi_range(0,15)
 		var panels = block.get_children()
 		panels[remove].queue_free()

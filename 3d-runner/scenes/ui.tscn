@@ -53,6 +53,10 @@ offset_top = 115.0
 offset_right = 249.0
 offset_bottom = 155.0
 
+[node name="Level" type="Label" parent="EndScreen/VBoxContainer"]
+layout_mode = 2
+text = "Level: 0"
+
 [node name="MaxSpeed" type="Label" parent="EndScreen/VBoxContainer"]
 layout_mode = 2
 text = "Max Speed Achieved: 0"
