@@ -75,7 +75,7 @@ func _setup_levels() -> void:
 		var new_level: Dictionary = {
 			"COLOR": colors[i],
 			"MUSIC": music_tracks[i],
-			"END_DISTANCE": 100 + (100*i^2)
+			"END_DISTANCE": 100 + (100*(i*i))
 			}
 		GameStats.levels.append(new_level)	
 
