@@ -59,10 +59,10 @@ bus = &"SFX"
 [node name="UI" parent="." instance=ExtResource("3_4wyf3")]
 
 [node name="Wall1" parent="." instance=ExtResource("7_i7141")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 
 [node name="Wall2" parent="." instance=ExtResource("7_i7141")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5, 0, -174.48)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6, 0, -174.48)
 
 [node name="Wall3" parent="." instance=ExtResource("7_i7141")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.237, -3.61528, -161.681)
