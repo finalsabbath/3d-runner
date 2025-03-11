@@ -1,28 +1,78 @@
-[gd_scene load_steps=4 format=3 uid="uid://dm0jphsphjj5h"]
+[gd_scene load_steps=3 format=3 uid="uid://dm0jphsphjj5h"]
 
 [ext_resource type="Script" uid="uid://cf86rattc3vm1" path="res://terrain_scripts/pit_1.gd" id="1_611o0"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_g74f0"]
-size = Vector3(15, 0, 20)
-
-[sub_resource type="BoxMesh" id="BoxMesh_611o0"]
-size = Vector3(15, 0, 20)
+[ext_resource type="PackedScene" uid="uid://b1xi5vibsdo4m" path="res://scenes/terrain_panel.tscn" id="2_328rn"]
 
 [node name="PitL" type="Node3D"]
 script = ExtResource("1_611o0")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="TerrainPanel1" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 
-[node name="Collision" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_g74f0")
+[node name="TerrainPanel2" parent="." instance=ExtResource("2_328rn")]
 
-[node name="Mesh" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("BoxMesh_611o0")
+[node name="TerrainPanel3" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+[node name="TerrainPanel4" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 2)
 
-[node name="Collision" type="CollisionShape3D" parent="StaticBody3D2"]
-shape = SubResource("BoxShape3D_g74f0")
+[node name="TerrainPanel5" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
-[node name="Mesh" type="MeshInstance3D" parent="StaticBody3D2"]
-mesh = SubResource("BoxMesh_611o0")
+[node name="TerrainPanel6" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 2)
+
+[node name="TerrainPanel7" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 4)
+
+[node name="TerrainPanel8" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="TerrainPanel9" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 4)
+
+[node name="TerrainPanel10" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 6)
+
+[node name="TerrainPanel11" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="TerrainPanel12" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 6)
+
+[node name="TerrainPanel13" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 8)
+
+[node name="TerrainPanel14" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="TerrainPanel15" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 8)
+
+[node name="TerrainPanel16" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 10)
+
+[node name="TerrainPanel17" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="TerrainPanel18" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 10)
+
+[node name="TerrainPanel19" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 12)
+
+[node name="TerrainPanel20" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="TerrainPanel21" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 12)
+
+[node name="TerrainPanel22" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 14)
+
+[node name="TerrainPanel23" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14)
+
+[node name="TerrainPanel24" parent="." instance=ExtResource("2_328rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 14)

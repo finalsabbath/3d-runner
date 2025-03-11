@@ -1,7 +1,7 @@
 extends Node3D
 class_name TerrainController
 
-const TERRAIN_LENGTH: int = 20
+const TERRAIN_LENGTH: int = 16
 const TERRAIN_WIDTH: int = 12
 const VELOCITY_MULT: int = 10
 
