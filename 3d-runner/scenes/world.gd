@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 
 func _connect_signals() -> void:
 	EventBus.retry.connect(retry)
-	EventBus.death_block_hit.connect(hit_death_block)
+	EventBus.run_end.connect(run_end)
 	
 func retry() -> void:
 	GameStats.distance = 0
@@ -37,6 +37,6 @@ func _pulse(delta: float) -> void:
 	elif pulse < 1:
 		pulse_up = true
 
-func hit_death_block() -> void:
+func run_end(reason: String) -> void:
 	get_tree().paused = true
-	ui.show_end_screen()
+	ui.show_end_screen(reason)

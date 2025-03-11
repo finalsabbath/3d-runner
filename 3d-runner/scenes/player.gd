@@ -49,11 +49,11 @@ func _physics_process(delta: float) -> void:
 			var death_blocks = get_tree().get_nodes_in_group("death_block")
 			var collider = collision.get_collider()
 			if collider in death_blocks:
-				EventBus.death_block_hit.emit()
+				EventBus.run_end.emit("Hit a block")
 	
 	#check fall death
 	if position.y < -10:
-		EventBus.death_block_hit.emit()
+		EventBus.run_end.emit("Fell down a hole")
 
 func _on_slide_timeout() -> void:
 	sliding = false

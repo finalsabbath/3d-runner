@@ -73,5 +73,15 @@ process_mode = 3
 layout_mode = 2
 text = "Quit"
 
+[node name="EndReason" type="Label" parent="EndScreen"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 235.0
+offset_top = 46.0
+offset_right = 379.0
+offset_bottom = 69.0
+text = "Reason Run Ended"
+horizontal_alignment = 1
+
 [connection signal="pressed" from="EndScreen/HBoxContainer/TryAgain" to="." method="_on_try_again_pressed"]
 [connection signal="pressed" from="EndScreen/HBoxContainer/Quit" to="." method="_on_quit_pressed"]

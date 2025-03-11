@@ -6,6 +6,7 @@ class_name UI
 @onready var max_speed: Label = $EndScreen/VBoxContainer/MaxSpeed
 @onready var total_distance: Label = $EndScreen/VBoxContainer/TotalDistance
 @onready var end_screen: Panel = $EndScreen
+@onready var end_reason: Label = %EndReason
 
 
 func _physics_process(_delta: float) -> void:
@@ -24,7 +25,8 @@ func _on_try_again_pressed() -> void:
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 
-func show_end_screen() -> void:
+func show_end_screen(reason: String) -> void:
+	end_reason.text = reason
 	max_speed.text = "Max Speed Achieved: " + str(snappedi(GameStats.terrain_velocity,1))
 	total_distance.text = "Total Distance Travelled: " +  str(snappedi(GameStats.distance,1))
 	end_screen.show()

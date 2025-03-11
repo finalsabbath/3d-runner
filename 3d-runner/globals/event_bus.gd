@@ -3,6 +3,6 @@ extends Node
 @warning_ignore_start("unused_signal")
 
 signal retry
-signal death_block_hit
+signal run_end
 
 @warning_ignore_restore("unused_signal")
