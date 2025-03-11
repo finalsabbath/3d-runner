@@ -4,6 +4,10 @@ class_name TerrainController
 const TERRAIN_LENGTH: int = 16
 const TERRAIN_WIDTH: int = 16
 const VELOCITY_MULT: int = 10
+const MAX_OBSTACLES: int = 3
+const STARTER_BLOCKS: int = 1
+
+var count_starter_blocks = 0
 
 ## Holds the catalog of loaded terrian block scenes
 var TerrainBlocks: Array = []
@@ -34,7 +38,12 @@ func _init_blocks(number_of_blocks: int) -> void:
 		if block_index == 0:
 			block.position.z = TERRAIN_LENGTH/2
 		else:
-			_append_to_far_edge(terrain_belt[block_index-1], block)
+			if count_starter_blocks >= STARTER_BLOCKS:
+				_append_to_far_edge(terrain_belt[block_index-1], block,true)
+			else:
+				count_starter_blocks +=1
+				_append_to_far_edge(terrain_belt[block_index-1], block,false)
+		
 		terrain_belt.append(block)
 		add_child(block)
 
@@ -47,22 +56,25 @@ func _progress_terrain(delta: float) -> void:
 		var first_terrain = terrain_belt.pop_front()
 
 		var block = TerrainBlocks.pick_random().instantiate()
-		_append_to_far_edge(last_terrain, block)
+		_append_to_far_edge(last_terrain, block,true)
 		add_child(block)
 		terrain_belt.append(block)
 		first_terrain.queue_free()
 
-func _append_to_far_edge(target_block: Node3D, appending_block: Node3D) -> void:
+func _append_to_far_edge(target_block: Node3D, appending_block: Node3D, add_obstacles: bool) -> void:
 	appending_block.position.z = (target_block.position.z) - TERRAIN_LENGTH
-	_add_obstacles(appending_block)
+	if add_obstacles:
+		_add_obstacles(appending_block)
 
 func _add_obstacles(block: Node3D) -> void:
-	var new_obstacle = Obstacles.pick_random().instantiate()
-	new_obstacle.position.x = _get_obstacle_position(new_obstacle.width)
-	print("Added Obstacle : " + new_obstacle.obstacle_name)
-	print("X pos: " + str(new_obstacle.position.x ))
-	new_obstacle.add_to_group("death_blocks")
-	block.add_child(new_obstacle)
+	for i in range(MAX_OBSTACLES):
+		var new_obstacle = Obstacles.pick_random().instantiate()
+		new_obstacle.position.x = _get_obstacle_position(new_obstacle.type)
+		new_obstacle.position.z += i * 4
+		print("Added Obstacle : " + new_obstacle.obstacle_name)
+		print("X pos: " + str(new_obstacle.position.x ))
+		new_obstacle.add_to_group("death_blocks")
+		block.add_child(new_obstacle)
 
 func _load_terrain_scenes(target_path: String) -> void:
 	var dir = DirAccess.open(target_path)
@@ -76,14 +88,15 @@ func _load_obstacles_scenes(target_path: String) -> void:
 		print("Loading obstacle scene: " + target_path + "/" + scene_path)
 		Obstacles.append(load(target_path + "/" + scene_path))
 		
-func _get_obstacle_position(width: float) -> float:
+func _get_obstacle_position(type) -> float:
 	var pos_x: float = 0
-	pos_x = randf_range(-TERRAIN_WIDTH/width,TERRAIN_WIDTH/width)
-	#pos_x = TERRAIN_WIDTH/width
-	#
-	#match type:
-		#Enums.ObstacleType.BARRIER:
-			##pos_x = randf_range(-4,4)
-			#pos_x = 4
-	#
+	var options: Array = []
+	match type:
+		Enums.ObstacleType.BARRIER:
+			options.append(4)
+			options.append(-4)
+			pos_x = options[randi() % options.size()]
+		Enums.ObstacleType.BOX:
+			pos_x = randf_range(-TERRAIN_WIDTH+1,TERRAIN_WIDTH-1)
+		
 	return pos_x
