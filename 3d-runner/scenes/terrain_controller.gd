@@ -58,7 +58,9 @@ func _append_to_far_edge(target_block: Node3D, appending_block: Node3D) -> void:
 
 func _add_obstacles(block: Node3D) -> void:
 	var new_obstacle = Obstacles.pick_random().instantiate()
-	new_obstacle.position.x = _get_obstacle_position(new_obstacle.type)
+	new_obstacle.position.x = _get_obstacle_position(new_obstacle.width)
+	print("Added Obstacle : " + new_obstacle.obstacle_name)
+	print("X pos: " + str(new_obstacle.position.x ))
 	new_obstacle.add_to_group("death_blocks")
 	block.add_child(new_obstacle)
 
@@ -74,10 +76,14 @@ func _load_obstacles_scenes(target_path: String) -> void:
 		print("Loading obstacle scene: " + target_path + "/" + scene_path)
 		Obstacles.append(load(target_path + "/" + scene_path))
 		
-func _get_obstacle_position(type) -> float:
+func _get_obstacle_position(width: float) -> float:
 	var pos_x: float = 0
-	match type:
-		Enums.ObstacleType.BARRIER:
-			pos_x = randf_range(-4,4)
-	
+	pos_x = randf_range(-TERRAIN_WIDTH/width,TERRAIN_WIDTH/width)
+	#pos_x = TERRAIN_WIDTH/width
+	#
+	#match type:
+		#Enums.ObstacleType.BARRIER:
+			##pos_x = randf_range(-4,4)
+			#pos_x = 4
+	#
 	return pos_x
