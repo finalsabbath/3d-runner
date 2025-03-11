@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameStats="*res://globals/game_stats.gd"
 EventBus="*res://globals/event_bus.gd"
+Enums="*res://globals/enums.gd"
 
 [input]
 

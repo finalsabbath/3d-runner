@@ -1,6 +1,10 @@
 extends Node3D
 class_name TerrainController
 
+const TERRAIN_LENGTH: int = 20
+const TERRAIN_WIDTH: int = 12
+const VELOCITY_MULT: int = 10
+
 ## Holds the catalog of loaded terrian block scenes
 var TerrainBlocks: Array = []
 ## The set of terrian blocks which are currently rendered to viewport
@@ -17,14 +21,14 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	_progress_terrain(delta)
 	GameStats.distance += GameStats.terrain_velocity * delta
-	GameStats.terrain_velocity += (delta*delta) * 10
+	GameStats.terrain_velocity += (delta*delta) * VELOCITY_MULT
 
 func _init_blocks(number_of_blocks: int) -> void:
 	for block_index in number_of_blocks:
 		var block = TerrainBlocks.pick_random().instantiate()
 		
 		if block_index == 0:
-			block.position.z = 10 #block.mesh.mesh.size.y/2
+			block.position.z = TERRAIN_LENGTH/2
 		else:
 			_append_to_far_edge(terrain_belt[block_index-1], block)
 		terrain_belt.append(block)
@@ -34,7 +38,7 @@ func _progress_terrain(delta: float) -> void:
 	for block in terrain_belt:
 		block.position.z += GameStats.terrain_velocity * delta
 
-	if terrain_belt[0].position.z >= 20:
+	if terrain_belt[0].position.z >= TERRAIN_LENGTH:
 		var last_terrain = terrain_belt[-1]
 		var first_terrain = terrain_belt.pop_front()
 
@@ -47,7 +51,7 @@ func _progress_terrain(delta: float) -> void:
 func _append_to_far_edge(target_block: Node3D, appending_block: Node3D) -> void:
 	#await appending_block.ready
 	#appending_block.position.z = target_block.position.z - target_block.mesh.size.y/2 - appending_block.mesh.size.y/2
-	appending_block.position.z = (target_block.position.z) - 20
+	appending_block.position.z = (target_block.position.z) - TERRAIN_LENGTH
 	print(appending_block.position.z)
 
 func _load_terrain_scenes(target_path: String) -> void:

@@ -8,15 +8,21 @@ size = Vector3(15, 0, 20)
 [sub_resource type="BoxMesh" id="BoxMesh_611o0"]
 size = Vector3(15, 0, 20)
 
-[node name="Pit1" type="Node3D"]
+[node name="PitL" type="Node3D"]
 script = ExtResource("1_611o0")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="Collision" type="CollisionShape3D" parent="StaticBody3D"]
-unique_name_in_owner = true
 shape = SubResource("BoxShape3D_g74f0")
 
 [node name="Mesh" type="MeshInstance3D" parent="StaticBody3D"]
-unique_name_in_owner = true
+mesh = SubResource("BoxMesh_611o0")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+
+[node name="Collision" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_g74f0")
+
+[node name="Mesh" type="MeshInstance3D" parent="StaticBody3D2"]
 mesh = SubResource("BoxMesh_611o0")
