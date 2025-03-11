@@ -36,6 +36,8 @@ func _connect_signals() -> void:
 func retry() -> void:
 	GameStats.distance = 0
 	GameStats.terrain_velocity = GameStats.STARTING_SPEED
+	GameStats.current_level = 0
+	GameStats.player_speed = 5.0
 	get_tree().reload_current_scene()
 
 func _pulse(delta: float) -> void:
@@ -63,6 +65,7 @@ func _check_distance_milestones() -> void:
 func _set_level() -> void:
 		music.stream = load(GameStats.levels[GameStats.current_level].MUSIC)
 		music.play()
+		GameStats.player_speed += 2.0
 
 func _update_environment() -> void:
 	directional_light_3d.light_color = directional_light_3d.light_color.lerp(GameStats.levels[GameStats.current_level].COLOR, 0.01)

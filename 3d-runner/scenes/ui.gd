@@ -22,10 +22,8 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_try_again_pressed() -> void:
-	print("retry button")
 	get_tree().paused = false
 	end_screen.hide()
-	GameStats.current_level = 0
 	EventBus.retry.emit()
 
 func _on_quit_pressed() -> void:

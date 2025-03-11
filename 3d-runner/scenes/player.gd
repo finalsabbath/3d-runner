@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-@export var speed = 8.0
 @export var fall_acceleration = 75
 @export var jump_impulse = 20
 @onready var slide_timer: Timer = $Slide
@@ -14,9 +13,9 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "ui_up", "ui_down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		target_velocity.x = direction.x * speed
+		target_velocity.x = direction.x * GameStats.player_speed
 	else:
-		target_velocity.x = move_toward(target_velocity.x, 0, speed)
+		target_velocity.x = move_toward(target_velocity.x, 0, GameStats.player_speed)
 
 	if not is_on_floor():
 		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
