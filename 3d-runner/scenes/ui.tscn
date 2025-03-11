@@ -21,6 +21,10 @@ offset_right = 20.0
 offset_bottom = 40.0
 grow_horizontal = 2
 
+[node name="Level" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="Speed" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2

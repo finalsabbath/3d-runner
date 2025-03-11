@@ -73,8 +73,6 @@ func _add_obstacles(block: Node3D) -> void:
 		var new_obstacle = Obstacles.pick_random().instantiate()
 		new_obstacle.position.x = _get_obstacle_position(new_obstacle.type)
 		new_obstacle.position.z += i * 4
-		print("Added Obstacle : " + new_obstacle.obstacle_name)
-		print("X pos: " + str(new_obstacle.position.x ))
 		new_obstacle.add_to_group("death_blocks")
 		block.add_child(new_obstacle)
 	

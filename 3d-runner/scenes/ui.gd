@@ -8,6 +8,7 @@ class_name UI
 @onready var end_screen: Panel = $EndScreen
 @onready var end_reason: Label = %EndReason
 @onready var label: Label = $HBoxContainer/Label
+@onready var level_label: Label = %Level
 
 
 
@@ -16,6 +17,7 @@ func _physics_process(_delta: float) -> void:
 		await ready
 	distance.text = "Distance: " + str(snappedi(GameStats.distance,1))
 	speed.text = "Speed: " + str(snappedi(GameStats.terrain_velocity,1))
+	level_label.text = "Level: " + str(GameStats.current_level+1)
 
 
 func _on_try_again_pressed() -> void:
