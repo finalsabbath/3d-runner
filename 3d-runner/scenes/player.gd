@@ -42,6 +42,7 @@ func _physics_process(delta: float) -> void:
 	velocity = target_velocity
 	move_and_slide()
 #	
+	#Check collision death
 	for i in range(get_slide_collision_count()):
 		var collision = get_slide_collision(i)
 		if collision:
@@ -49,7 +50,10 @@ func _physics_process(delta: float) -> void:
 			var collider = collision.get_collider()
 			if collider in death_blocks:
 				EventBus.death_block_hit.emit()
-			
+	
+	#check fall death
+	if position.y < -10:
+		EventBus.death_block_hit.emit()
 
 func _on_slide_timeout() -> void:
 	sliding = false
