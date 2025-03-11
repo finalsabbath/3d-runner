@@ -7,15 +7,21 @@ const VELOCITY_MULT: int = 10
 
 ## Holds the catalog of loaded terrian block scenes
 var TerrainBlocks: Array = []
+var Obstacles: Array = []
 ## The set of terrian blocks which are currently rendered to viewport
 var terrain_belt: Array[Node3D] = []
 ## The number of blocks to keep rendered to the viewport
 @export var num_terrain_blocks = 16
 ## Path to directory holding the terrain block scenes
 @export_dir var terrian_blocks_path = "res://terrain_blocks"
+@export_dir var obstacles_path = "res://obstacles"
+
+## Obstacles
+var box_obstacle = load("res://obstacles/block.tscn")
 
 func _ready() -> void:
 	_load_terrain_scenes(terrian_blocks_path)
+	_load_obstacles_scenes(obstacles_path)
 	_init_blocks(num_terrain_blocks)
 
 func _physics_process(delta: float) -> void:
@@ -49,13 +55,22 @@ func _progress_terrain(delta: float) -> void:
 		first_terrain.queue_free()
 
 func _append_to_far_edge(target_block: Node3D, appending_block: Node3D) -> void:
-	#await appending_block.ready
-	#appending_block.position.z = target_block.position.z - target_block.mesh.size.y/2 - appending_block.mesh.size.y/2
 	appending_block.position.z = (target_block.position.z) - TERRAIN_LENGTH
-	print(appending_block.position.z)
+	_add_obstacles(appending_block)
+
+func _add_obstacles(block: Node3D) -> void:
+	var new_obstacle = Obstacles.pick_random().instantiate()
+	new_obstacle.add_to_group("death_blocks")
+	block.add_child(new_obstacle)
 
 func _load_terrain_scenes(target_path: String) -> void:
 	var dir = DirAccess.open(target_path)
 	for scene_path in dir.get_files():
 		print("Loading terrian block scene: " + target_path + "/" + scene_path)
 		TerrainBlocks.append(load(target_path + "/" + scene_path))
+
+func _load_obstacles_scenes(target_path: String) -> void:
+	var dir = DirAccess.open(target_path)
+	for scene_path in dir.get_files():
+		print("Loading obstacle scene: " + target_path + "/" + scene_path)
+		Obstacles.append(load(target_path + "/" + scene_path))
