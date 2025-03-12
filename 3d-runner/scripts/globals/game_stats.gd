@@ -39,10 +39,8 @@ func setup_game() -> void:
 func _get_music_tracks(target_path: String) -> void:
 	var dir = DirAccess.open(target_path)
 	for scene_path in dir.get_files():
-		print("Found music track: " + target_path + "/" + scene_path)
-		if ".import" not in scene_path:
+		if ".import" in scene_path:
+			scene_path = scene_path.trim_suffix(".import")
 			print("Loading music track: " + target_path + "/" + scene_path)
 			var new_path: String = target_path + "/" + scene_path
 			music_tracks.append(new_path)
-		else:
-			print("Count not load music track: " + target_path + "/" + scene_path)
