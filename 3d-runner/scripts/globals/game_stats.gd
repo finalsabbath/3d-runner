@@ -1,9 +1,9 @@
 extends Node
 
 const STARTING_SPEED: float = 5.0
-
+const MAX_LEVEL: int = 6
 const NUM_LEVELS:int = 6
-@export var music_path = "res://assets/music"
+const MUSIC_PATH = "res://assets/music"
 const WORLD = "res://scenes/world.tscn"
 
 var current_level:int = 0
@@ -18,7 +18,7 @@ var music_tracks: Array = []
 
 
 func setup_game() -> void:
-	_get_music_tracks(music_path)
+	_get_music_tracks(MUSIC_PATH)
 	#_setup_levels()
 	#get_tree().change_scene_to_file(WORLD)
 	print("Setup complete")

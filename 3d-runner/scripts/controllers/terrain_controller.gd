@@ -7,6 +7,7 @@ const VELOCITY_MULT: int = 10
 const STARTER_BLOCKS: int = 1
 
 var count_starter_blocks = 0
+var debug_enabled: bool = false
 
 var TerrainBlocks: Array = []
 var Obstacles: Array = []
@@ -64,13 +65,14 @@ func _append_to_far_edge(target_block: Node3D, appending_block: Node3D, add_obst
 		_add_obstacles(appending_block)
 
 func _add_obstacles(block: Node3D) -> void:
-	_add_pits(block)
-	for i in range((GameStats.current_level*2)+1):
-		var new_obstacle = Obstacles.pick_random().instantiate()
-		new_obstacle.position.x = _get_obstacle_position(new_obstacle.type)
-		new_obstacle.position.z += i * 4
-		new_obstacle.add_to_group("death_blocks")
-		block.add_child(new_obstacle)
+	if !debug_enabled:
+		_add_pits(block)
+		for i in range((GameStats.current_level*2)+1):
+			var new_obstacle = Obstacles.pick_random().instantiate()
+			new_obstacle.position.x = _get_obstacle_position(new_obstacle.type)
+			new_obstacle.position.z += i * 4
+			new_obstacle.add_to_group("death_blocks")
+			block.add_child(new_obstacle)
 	
 
 func _add_pits(block: Node3D) -> void:

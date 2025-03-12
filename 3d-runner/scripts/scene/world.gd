@@ -1,14 +1,10 @@
 extends Node3D
 class_name World
 
-
-
 @onready var world_environment: WorldEnvironment = $WorldEnvironment
 @onready var directional_light_3d: DirectionalLight3D = $DirectionalLight3D
 @onready var music: AudioStreamPlayer = $Music
 @onready var ui: UI = $UI
-
-
 
 func _ready() -> void:
 	_connect_signals()
@@ -18,7 +14,8 @@ func _physics_process(delta: float) -> void:
 	if not ready:
 		await ready
 	var master_bus_volume = (AudioServer.get_bus_peak_volume_left_db(0,0) + AudioServer.get_bus_peak_volume_right_db(0,0)) / 2
-	world_environment.environment.background_energy_multiplier = (30 + master_bus_volume) * (delta * 5) -1
+	#world_environment.environment.background_energy_multiplier = (30 + master_bus_volume) * (delta * 5) -1
+	world_environment.environment.glow_bloom = ((30 + master_bus_volume) * (delta * 5))/4
 	_check_distance_milestones()
 	_update_environment()
 
@@ -39,7 +36,7 @@ func run_end(reason: String) -> void:
 
 func _check_distance_milestones() -> void:
 	var end_distance = 100 + ( 100* (GameStats.current_level * GameStats.current_level))
-	if GameStats.distance > end_distance:
+	if GameStats.distance > end_distance and GameStats.current_level < GameStats.MAX_LEVEL:
 		GameStats.current_level += 1
 		_set_level()
 
