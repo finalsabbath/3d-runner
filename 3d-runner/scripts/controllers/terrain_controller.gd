@@ -69,7 +69,7 @@ func _add_obstacles(block: Node3D) -> void:
 		for i in range(num_obstacles):
 			var new_obstacle = GameState.Obstacles.pick_random().instantiate()
 			new_obstacle.position.x = _get_obstacle_position(new_obstacle.type)
-			new_obstacle.position.z += i * 4
+			new_obstacle.position.z -= i * 3
 			new_obstacle.add_to_group("death_blocks")
 			block.add_child(new_obstacle)
 	
