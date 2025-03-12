@@ -82,12 +82,16 @@ func _add_pits(block: Node3D) -> void:
 func _load_terrain_scenes(target_path: String) -> void:
 	var dir = DirAccess.open(target_path)
 	for scene_path in dir.get_files():
+		if ".remap" in scene_path:
+			scene_path = scene_path.trim_suffix('.remap')
 		print("Loading terrian block scene: " + target_path + "/" + scene_path)
 		TerrainBlocks.append(load(target_path + "/" + scene_path))
 
 func _load_obstacles_scenes(target_path: String) -> void:
 	var dir = DirAccess.open(target_path)
 	for scene_path in dir.get_files():
+		if ".remap" in scene_path:
+			scene_path = scene_path.trim_suffix('.remap')
 		print("Loading obstacle scene: " + target_path + "/" + scene_path)
 		Obstacles.append(load(target_path + "/" + scene_path))
 		
