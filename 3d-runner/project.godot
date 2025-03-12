@@ -15,6 +15,10 @@ run/main_scene="uid://dksifru4vppkf"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+general/default_playback_type.web=0
+
 [autoload]
 
 GameStats="*res://scripts/globals/game_stats.gd"
