@@ -1,16 +1,17 @@
 extends Control
 
-
-const WORLD = "res://scenes/world.tscn"
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
-var colors: Array = [Color.RED,Color.ORANGE,Color.YELLOW,Color.GREEN,Color.BLUE,Color.INDIGO,Color.VIOLET]
 var color_num: int = 0
-var next_color = colors[0]
+var next_color = GameStats.colors[0]
 
+
+func _ready() -> void:
+	GameStats.setup_game()
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file(WORLD)
+	#GameStats.setup_game()
+	get_tree().change_scene_to_file(GameStats.WORLD)
 
 
 func _on_quit_pressed() -> void:
@@ -26,4 +27,4 @@ func _on_timer_timeout() -> void:
 	color_num += 1
 	if color_num >= 7:
 		color_num = 0
-	next_color = colors[color_num]
+	next_color = GameStats.colors[color_num]

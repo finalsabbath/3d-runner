@@ -1,22 +1,17 @@
 extends Node3D
 class_name World
 
-const NUM_LEVELS:int = 6
-const MUSIC_PATH: String = "res://assets/music/"
+
 
 @onready var world_environment: WorldEnvironment = $WorldEnvironment
 @onready var directional_light_3d: DirectionalLight3D = $DirectionalLight3D
 @onready var music: AudioStreamPlayer = $Music
 @onready var ui: UI = $UI
 
-#Level arrays
-var colors: Array = [Color.RED,Color.ORANGE,Color.YELLOW,Color.GREEN,Color.BLUE,Color.INDIGO,Color.VIOLET]
-var music_tracks: Array = []
+
 
 func _ready() -> void:
 	_connect_signals()
-	_get_music_tracks(MUSIC_PATH)
-	_setup_levels()
 	_set_level()
 
 func _physics_process(delta: float) -> void:
@@ -43,32 +38,15 @@ func run_end(reason: String) -> void:
 	ui.show_end_screen(reason)
 
 func _check_distance_milestones() -> void:
-	if GameStats.distance > GameStats.levels[GameStats.current_level].END_DISTANCE:
+	var end_distance = 100 + ( 100* (GameStats.current_level * GameStats.current_level))
+	if GameStats.distance > end_distance:
 		GameStats.current_level += 1
 		_set_level()
 
 func _set_level() -> void:
-		music.stream = load(GameStats.levels[GameStats.current_level].MUSIC)
+		music.stream = load(GameStats.music_tracks[GameStats.current_level])
 		music.play()
 		GameStats.player_speed += 2.0
 
 func _update_environment() -> void:
-	directional_light_3d.light_color = directional_light_3d.light_color.lerp(GameStats.levels[GameStats.current_level].COLOR, 0.01)
-	
-func _setup_levels() -> void:
-	for i in range(NUM_LEVELS):
-		var new_level: Dictionary = {
-			"COLOR": colors[i],
-			"MUSIC": music_tracks[i],
-			"END_DISTANCE": 100 + (100*(i*i))
-			}
-		GameStats.levels.append(new_level)	
-
-	
-func _get_music_tracks(target_path: String) -> void:
-	var dir = DirAccess.open(target_path)
-	for scene_path in dir.get_files():
-		if ".import" not in scene_path:
-			print("Loading music track: " + target_path + "/" + scene_path)
-			var new_path: String = target_path + "/" + scene_path
-			music_tracks.append(new_path)
+	directional_light_3d.light_color = directional_light_3d.light_color.lerp(GameStats.colors[GameStats.current_level], 0.01)
