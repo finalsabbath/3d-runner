@@ -9,6 +9,8 @@ var target_velocity = Vector3.ZERO
 var sliding: bool = false
 
 func _physics_process(delta: float) -> void:
+	if not ready:
+		await ready
 	var input_dir := Input.get_vector("move_left", "move_right", "ui_up", "ui_down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:

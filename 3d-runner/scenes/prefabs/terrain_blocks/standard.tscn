@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm0jphsphjj5h"]
+[gd_scene load_steps=2 format=3 uid="uid://dm0jphsphjj5h"]
 
-[ext_resource type="Script" uid="uid://cf86rattc3vm1" path="res://scripts/terrain/pit_1.gd" id="1_woyut"]
 [ext_resource type="PackedScene" uid="uid://b1xi5vibsdo4m" path="res://scenes/prefabs/terrain_panel.tscn" id="2_rwlvg"]
 
 [node name="PitL" type="Node3D"]
-script = ExtResource("1_woyut")
 
 [node name="TerrainPanel0-0" parent="." instance=ExtResource("2_rwlvg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 1.02723)

@@ -1,8 +1,8 @@
 extends Node3D
 class_name TerrainController
 
-const TERRAIN_LENGTH: int = 16
-const TERRAIN_WIDTH: int = 16
+const TERRAIN_LENGTH: float = 16.0
+const TERRAIN_WIDTH: float = 16.0
 const VELOCITY_MULT: int = 10
 const STARTER_BLOCKS: int = 1
 
@@ -22,6 +22,8 @@ func _ready() -> void:
 	_init_blocks(num_terrain_blocks)
 
 func _physics_process(delta: float) -> void:
+	if not ready:
+		await ready
 	_progress_terrain(delta)
 	GameStats.distance += GameStats.terrain_velocity * delta
 	GameStats.terrain_velocity += (delta*delta) * VELOCITY_MULT
