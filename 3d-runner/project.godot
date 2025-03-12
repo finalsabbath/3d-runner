@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameStats="*res://globals/game_stats.gd"
-EventBus="*res://globals/event_bus.gd"
-Enums="*res://globals/enums.gd"
+GameStats="*res://scripts/globals/game_stats.gd"
+EventBus="*res://scripts/globals/event_bus.gd"
+Enums="*res://scripts/globals/enums.gd"
 
 [input]
 

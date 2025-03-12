@@ -7,11 +7,7 @@ const MUSIC_PATH: String = "res://assets/music/"
 @onready var world_environment: WorldEnvironment = $WorldEnvironment
 @onready var directional_light_3d: DirectionalLight3D = $DirectionalLight3D
 @onready var music: AudioStreamPlayer = $Music
-@onready var pulse_audio: AudioStreamPlayer3D = $Pulse
 @onready var ui: UI = $UI
-
-var pulse: float = 0.0
-var pulse_up: bool = true
 
 #Level arrays
 var colors: Array = [Color.RED,Color.ORANGE,Color.YELLOW,Color.GREEN,Color.BLUE,Color.INDIGO,Color.VIOLET]
@@ -39,19 +35,6 @@ func retry() -> void:
 	GameStats.current_level = 0
 	GameStats.player_speed = 5.0
 	get_tree().reload_current_scene()
-
-func _pulse(delta: float) -> void:
-	world_environment.environment.background_energy_multiplier = pulse
-	if pulse_up: 
-		pulse +=(GameStats.terrain_velocity * delta) * delta
-	else: 
-		pulse -= (GameStats.terrain_velocity * delta) * delta
-	
-	if pulse > 2.5:
-		pulse_up = false
-		pulse_audio.play()
-	elif pulse < 1:
-		pulse_up = true
 
 func run_end(reason: String) -> void:
 	get_tree().paused = true

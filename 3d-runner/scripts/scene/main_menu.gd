@@ -16,7 +16,7 @@ func _on_start_pressed() -> void:
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not ready:
 		await ready
 	sprite_2d.modulate = sprite_2d.modulate.lerp(next_color,.01)

@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://v2mfsd0bkn2f"]
 
-[ext_resource type="Script" uid="uid://mxbj2y1xu6ab" path="res://obstacle_script/box.gd" id="1_7r7oj"]
+[ext_resource type="Script" uid="uid://mxbj2y1xu6ab" path="res://scripts/obstacles/box.gd" id="1_j0rtk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2a2jf"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_10aqq"]
 
 [node name="Box" type="Node3D" groups=["death_block"]]
-script = ExtResource("1_7r7oj")
+script = ExtResource("1_j0rtk")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." groups=["death_block"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

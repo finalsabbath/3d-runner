@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://sjeykdcuaj70"
-path="res://.godot/imported/mad-rush-logo.png-16c45ebda4f144b187f6594c735b072e.ctex"
+path="res://.godot/imported/mad-rush-logo.png-33c1633182198159e94b215ea6a2f9b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mad-rush-logo.png"
-dest_files=["res://.godot/imported/mad-rush-logo.png-16c45ebda4f144b187f6594c735b072e.ctex"]
+source_file="res://assets/art/mad-rush-logo.png"
+dest_files=["res://.godot/imported/mad-rush-logo.png-33c1633182198159e94b215ea6a2f9b1.ctex"]
 
 [params]
 

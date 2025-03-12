@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dksifru4vppkf"]
 
-[ext_resource type="Script" uid="uid://sbfihikmqibm" path="res://scenes/main_menu.gd" id="1_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://sjeykdcuaj70" path="res://assets/mad-rush-logo.png" id="2_bqqt6"]
+[ext_resource type="Script" uid="uid://sbfihikmqibm" path="res://scripts/scene/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://sjeykdcuaj70" path="res://assets/art/mad-rush-logo.png" id="2_bqqt6"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_vue75"]
 

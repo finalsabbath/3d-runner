@@ -12,8 +12,8 @@ var TerrainBlocks: Array = []
 var Obstacles: Array = []
 var terrain_belt: Array[Node3D] = []
 @export var num_terrain_blocks = 16
-@export_dir var terrian_blocks_path = "res://terrain_blocks"
-@export_dir var obstacles_path = "res://obstacles"
+@export_dir var terrian_blocks_path = "res://scenes/prefabs/terrain_blocks"
+@export_dir var obstacles_path = "res://scenes/prefabs/obstacles"
 
 
 func _ready() -> void:
