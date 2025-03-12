@@ -9,29 +9,24 @@ const STARTER_BLOCKS: int = 1
 var count_starter_blocks = 0
 var debug_enabled: bool = false
 
-var TerrainBlocks: Array = []
-var Obstacles: Array = []
 var terrain_belt: Array[Node3D] = []
-@export var num_terrain_blocks = 16
-@export_dir var terrian_blocks_path = "res://scenes/prefabs/terrain_blocks"
-@export_dir var obstacles_path = "res://scenes/prefabs/obstacles"
+
+@export var num_terrain_blocks = 4
 
 
 func _ready() -> void:
-	_load_terrain_scenes(terrian_blocks_path)
-	_load_obstacles_scenes(obstacles_path)
 	_init_blocks(num_terrain_blocks)
 
 func _physics_process(delta: float) -> void:
 	if not ready:
 		await ready
 	_progress_terrain(delta)
-	GameStats.distance += GameStats.terrain_velocity * delta
-	GameStats.terrain_velocity += (delta*delta) * VELOCITY_MULT
+	GameState.distance += GameState.terrain_velocity * delta
+	GameState.terrain_velocity += (delta*delta) * VELOCITY_MULT
 
 func _init_blocks(number_of_blocks: int) -> void:
 	for block_index in number_of_blocks:
-		var block = TerrainBlocks.pick_random().instantiate()
+		var block = GameState.TerrainBlocks.pick_random().instantiate()
 		
 		if block_index == 0:
 			block.position.z = TERRAIN_LENGTH/2
@@ -47,13 +42,13 @@ func _init_blocks(number_of_blocks: int) -> void:
 
 func _progress_terrain(delta: float) -> void:
 	for block in terrain_belt:
-		block.position.z += GameStats.terrain_velocity * delta
+		block.position.z += GameState.terrain_velocity * delta
 
 	if terrain_belt[0].position.z >= TERRAIN_LENGTH:
 		var last_terrain = terrain_belt[-1]
 		var first_terrain = terrain_belt.pop_front()
 
-		var block = TerrainBlocks.pick_random().instantiate()
+		var block = GameState.TerrainBlocks.pick_random().instantiate()
 		_append_to_far_edge(last_terrain, block,true)
 		add_child(block)
 		terrain_belt.append(block)
@@ -67,35 +62,18 @@ func _append_to_far_edge(target_block: Node3D, appending_block: Node3D, add_obst
 func _add_obstacles(block: Node3D) -> void:
 	if !debug_enabled:
 		_add_pits(block)
-		for i in range((GameStats.current_level*2)+1):
-			var new_obstacle = Obstacles.pick_random().instantiate()
+		for i in range((GameState.current_level*2)+1):
+			var new_obstacle = GameState.Obstacles.pick_random().instantiate()
 			new_obstacle.position.x = _get_obstacle_position(new_obstacle.type)
 			new_obstacle.position.z += i * 4
 			new_obstacle.add_to_group("death_blocks")
 			block.add_child(new_obstacle)
 	
-
 func _add_pits(block: Node3D) -> void:
-	for i in range((GameStats.current_level*2)+1):
+	for i in range((GameState.current_level*2)+1):
 		var remove = randi_range(0,15)
 		var panels = block.get_children()
 		panels[remove].queue_free()
-
-func _load_terrain_scenes(target_path: String) -> void:
-	var dir = DirAccess.open(target_path)
-	for scene_path in dir.get_files():
-		if ".remap" in scene_path:
-			scene_path = scene_path.trim_suffix('.remap')
-		print("Loading terrian block scene: " + target_path + "/" + scene_path)
-		TerrainBlocks.append(load(target_path + "/" + scene_path))
-
-func _load_obstacles_scenes(target_path: String) -> void:
-	var dir = DirAccess.open(target_path)
-	for scene_path in dir.get_files():
-		if ".remap" in scene_path:
-			scene_path = scene_path.trim_suffix('.remap')
-		print("Loading obstacle scene: " + target_path + "/" + scene_path)
-		Obstacles.append(load(target_path + "/" + scene_path))
 		
 func _get_obstacle_position(type) -> float:
 	var pos_x: float = 0

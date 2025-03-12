@@ -1,8 +1,6 @@
 extends Node3D
 class_name World
 
-
-
 @onready var world_environment: WorldEnvironment = $WorldEnvironment
 @onready var directional_light_3d: DirectionalLight3D = $DirectionalLight3D
 @onready var music: AudioStreamPlayer = $Music
@@ -13,7 +11,7 @@ var spectrum
 func _ready() -> void:
 	_connect_signals()
 	_set_level()
-	_setup_music_analyser()
+	#_setup_music_analyser()
 
 func _physics_process(delta: float) -> void:
 	if not ready:
@@ -25,21 +23,19 @@ func _physics_process(delta: float) -> void:
 	_check_distance_milestones()
 	_update_environment()
 
-
-#Might use this later
+#Might use this later if time allows
 func _setup_music_analyser() -> void:
 	spectrum = AudioServer.get_bus_effect_instance(2, 0)
-
 
 func _connect_signals() -> void:
 	EventBus.retry.connect(retry)
 	EventBus.run_end.connect(run_end)
 	
 func retry() -> void:
-	GameStats.distance = 0
-	GameStats.terrain_velocity = GameStats.STARTING_SPEED
-	GameStats.current_level = 0
-	GameStats.player_speed = 5.0
+	GameState.distance = 0
+	GameState.terrain_velocity = GameState.STARTING_SPEED
+	GameState.current_level = 0
+	GameState.player_speed = 5.0
 	get_tree().reload_current_scene()
 
 func run_end(reason: String) -> void:
@@ -47,15 +43,15 @@ func run_end(reason: String) -> void:
 	ui.show_end_screen(reason)
 
 func _check_distance_milestones() -> void:
-	var end_distance = 100 + ( 100* (GameStats.current_level * GameStats.current_level))
-	if GameStats.distance > end_distance and GameStats.current_level < GameStats.MAX_LEVEL:
-		GameStats.current_level += 1
+	var end_distance = 100 + ( 100* (GameState.current_level * GameState.current_level))
+	if GameState.distance > end_distance and GameState.current_level < GameState.MAX_LEVEL:
+		GameState.current_level += 1
 		_set_level()
 
 func _set_level() -> void:
-		music.stream = load(GameStats.music_tracks[GameStats.current_level])
+		music.stream = load(GameState.music_tracks[GameState.current_level])
 		music.play()
-		GameStats.player_speed += 2.0
+		GameState.player_speed += 2.0
 
 func _update_environment() -> void:
-	directional_light_3d.light_color = directional_light_3d.light_color.lerp(GameStats.colors[GameStats.current_level], 0.01)
+	directional_light_3d.light_color = directional_light_3d.light_color.lerp(GameState.colors[GameState.current_level], 0.01)

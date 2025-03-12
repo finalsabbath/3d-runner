@@ -3,15 +3,15 @@ extends Control
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 var color_num: int = 0
-var next_color = GameStats.colors[0]
+var next_color = GameState.colors[0]
 
 
 func _ready() -> void:
-	GameStats.setup_game()
+	GameState.setup_game()
 
 func _on_start_pressed() -> void:
 	#GameStats.setup_game()
-	get_tree().change_scene_to_file(GameStats.WORLD)
+	get_tree().change_scene_to_file(GameState.WORLD_SCENE)
 
 
 func _on_quit_pressed() -> void:
@@ -27,4 +27,4 @@ func _on_timer_timeout() -> void:
 	color_num += 1
 	if color_num >= 7:
 		color_num = 0
-	next_color = GameStats.colors[color_num]
+	next_color = GameState.colors[color_num]
