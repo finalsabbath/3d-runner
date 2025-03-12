@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://dksifru4vppkf"]
+
+[ext_resource type="Script" uid="uid://sbfihikmqibm" path="res://scenes/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://sjeykdcuaj70" path="res://assets/mad-rush-logo.png" id="2_bqqt6"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_vue75"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekxnf")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.252028, 0.252028, 0.252028, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_vue75")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(532, 212)
+scale = Vector2(1.32187, 1.19687)
+texture = ExtResource("2_bqqt6")
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 485.0
+offset_right = 571.0
+offset_bottom = 538.0
+theme_override_font_sizes/font_size = 32
+text = "Start"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1019.0
+offset_top = 553.0
+offset_right = 1094.0
+offset_bottom = 606.0
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
