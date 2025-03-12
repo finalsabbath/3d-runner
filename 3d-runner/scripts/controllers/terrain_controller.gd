@@ -5,6 +5,7 @@ const TERRAIN_LENGTH: float = 16.0
 const TERRAIN_WIDTH: float = 16.0
 const VELOCITY_MULT: int = 10
 const STARTER_BLOCKS: int = 1
+const MAX_OBSTACLES: int = 5
 
 var count_starter_blocks = 0
 var debug_enabled: bool = false
@@ -60,17 +61,20 @@ func _append_to_far_edge(target_block: Node3D, appending_block: Node3D, add_obst
 		_add_obstacles(appending_block)
 
 func _add_obstacles(block: Node3D) -> void:
+	var num_obstacles = (GameState.current_level*2)+1
+	if num_obstacles > MAX_OBSTACLES:
+		num_obstacles = MAX_OBSTACLES
 	if !debug_enabled:
-		_add_pits(block)
-		for i in range((GameState.current_level*2)+1):
+		_add_pits(block,num_obstacles)
+		for i in range(num_obstacles):
 			var new_obstacle = GameState.Obstacles.pick_random().instantiate()
 			new_obstacle.position.x = _get_obstacle_position(new_obstacle.type)
 			new_obstacle.position.z += i * 4
 			new_obstacle.add_to_group("death_blocks")
 			block.add_child(new_obstacle)
 	
-func _add_pits(block: Node3D) -> void:
-	for i in range((GameState.current_level*2)+1):
+func _add_pits(block: Node3D,num_obstacles: int) -> void:
+	for i in range(num_obstacles):
 		var remove = randi_range(0,15)
 		var panels = block.get_children()
 		panels[remove].queue_free()
