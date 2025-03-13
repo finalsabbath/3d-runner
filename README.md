@@ -6,7 +6,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/finalsabbath/3d-runner">
-    <img src="raw_assets/mad-rush-logo.png" alt="Logo" width="160" height="160">
+    <img src="raw_assets/mad-rush-new-logo.png" alt="Logo" width="160" height="160">
   </a>
 </div>
 
@@ -58,3 +58,4 @@ Game should be playable here: https://finalsabbath.itch.io/mad-rush
 - ExploreGameDev for terrain belt design for 3D runner : https://youtu.be/1jNt91A2PW0?si=0WCnfxj0mGUR-A9b
 - Abstraction for music : https://tallbeard.itch.io/music-loop-bundle
 - Prinbles for art assets : https://prinbles.itch.io/silent
+- GGBotNet for fonts : https://www.ggbot.net/fonts/

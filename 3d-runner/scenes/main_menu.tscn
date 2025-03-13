@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dksifru4vppkf"]
 
 [ext_resource type="Script" uid="uid://sbfihikmqibm" path="res://scripts/scene/main_menu.gd" id="1_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://sjeykdcuaj70" path="res://assets/art/mad-rush-logo.png" id="2_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://bk64d3ol2qabf" path="res://assets/ui/Headless.png" id="2_wu84c"]
+[ext_resource type="Texture2D" uid="uid://3f8a4u45c6pi" path="res://assets/art/mad-rush-new-logo.png" id="3_wu84c"]
 [ext_resource type="AudioStream" uid="uid://c0w7takgfes7x" path="res://assets/music/Sketchbook 2024-09-04_LOOP.ogg" id="4_wu84c"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bqqt6"]
@@ -40,9 +40,9 @@ grow_vertical = 2
 texture = ExtResource("2_wu84c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(579, 307)
-scale = Vector2(1.79062, 1.40312)
-texture = ExtResource("2_bqqt6")
+position = Vector2(579.5, 262.462)
+scale = Vector2(2.46441, 1.83137)
+texture = ExtResource("3_wu84c")
 
 [node name="Start" type="Button" parent="."]
 unique_name_in_owner = true
