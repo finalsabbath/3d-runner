@@ -61,7 +61,7 @@ func _append_to_far_edge(target_block: Node3D, appending_block: Node3D, add_obst
 		_add_obstacles(appending_block)
 
 func _add_obstacles(block: Node3D) -> void:
-	var num_obstacles = (GameState.current_level*2)+1
+	var num_obstacles = GameState.current_level + 1
 	if num_obstacles > MAX_OBSTACLES:
 		num_obstacles = MAX_OBSTACLES
 	if !debug_enabled:
@@ -69,7 +69,8 @@ func _add_obstacles(block: Node3D) -> void:
 		for i in range(num_obstacles):
 			var new_obstacle = GameState.Obstacles.pick_random().instantiate()
 			new_obstacle.position.x = _get_obstacle_position(new_obstacle.type)
-			new_obstacle.position.z -= i * 3
+			var separation: float = TERRAIN_LENGTH/num_obstacles/2
+			new_obstacle.position.z -= (i+1) * separation
 			new_obstacle.add_to_group("death_blocks")
 			block.add_child(new_obstacle)
 	
