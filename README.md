@@ -6,6 +6,7 @@
   <a href="https://github.com/finalsabbath/3d-runner">
     <img src="raw_assets/mad-rush-logo.png" alt="Logo" width="80" height="80">
   </a>
+</div>
 
 <!-- TABLE OF CONTENTS -->
 <details>
