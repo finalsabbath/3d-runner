@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b001uqla7yi5b"]
+[gd_scene load_steps=3 format=3 uid="uid://b001uqla7yi5b"]
 
 [ext_resource type="Script" uid="uid://glcd86pvukvb" path="res://scripts/scene/ui.gd" id="1_nt7q6"]
+[ext_resource type="Theme" uid="uid://csl7vlf1mo2bl" path="res://themes/default_theme.tres" id="2_6ikxf"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -24,19 +25,23 @@ grow_horizontal = 2
 [node name="Level" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("2_6ikxf")
 
 [node name="Speed" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("2_6ikxf")
 text = "Speed: 0"
 
 [node name="Distance" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("2_6ikxf")
 text = "Distance: 0"
 
 [node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_6ikxf")
 
 [node name="EndScreen" type="Panel" parent="."]
 visible = false
@@ -48,30 +53,33 @@ offset_bottom = 578.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="EndScreen"]
 layout_mode = 0
-offset_left = 209.0
-offset_top = 115.0
-offset_right = 249.0
-offset_bottom = 155.0
+offset_left = 154.0
+offset_top = 119.0
+offset_right = 480.0
+offset_bottom = 184.0
 
 [node name="Level" type="Label" parent="EndScreen/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_6ikxf")
 text = "Level: 0"
 
 [node name="MaxSpeed" type="Label" parent="EndScreen/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_6ikxf")
 text = "Max Speed Achieved: 0"
 
 [node name="TotalDistance" type="Label" parent="EndScreen/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_6ikxf")
 text = "Total Distance Travelled: 0"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="EndScreen"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 0
-offset_left = 233.0
-offset_top = 302.0
-offset_right = 360.0
-offset_bottom = 342.0
+offset_left = 124.0
+offset_top = 325.0
+offset_right = 546.0
+offset_bottom = 376.0
 theme_override_constants/separation = 50
 
 [node name="TryAgain" type="Button" parent="EndScreen/HBoxContainer"]
@@ -81,6 +89,7 @@ layout_mode = 2
 focus_neighbor_right = NodePath("../Quit")
 focus_next = NodePath("../Quit")
 focus_previous = NodePath("../Quit")
+theme = ExtResource("2_6ikxf")
 text = "Try Again"
 
 [node name="Quit" type="Button" parent="EndScreen/HBoxContainer"]
@@ -89,15 +98,18 @@ layout_mode = 2
 focus_neighbor_left = NodePath("../TryAgain")
 focus_next = NodePath("../TryAgain")
 focus_previous = NodePath("../TryAgain")
+theme = ExtResource("2_6ikxf")
 text = "Quit"
 
 [node name="EndReason" type="Label" parent="EndScreen"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 235.0
-offset_top = 46.0
-offset_right = 379.0
-offset_bottom = 69.0
+offset_left = 135.0
+offset_top = 49.0
+offset_right = 519.0
+offset_bottom = 85.0
+theme = ExtResource("2_6ikxf")
+theme_override_font_sizes/font_size = 30
 text = "Reason Run Ended"
 horizontal_alignment = 1
 
