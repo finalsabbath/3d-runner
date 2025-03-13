@@ -9,6 +9,7 @@ const TERRAIN_BLOCKS_PATH = "res://scenes/prefabs/terrain_blocks"
 const OBSTACLES_PATH = "res://scenes/prefabs/obstacles"
 
 var current_level:int = 0
+var best: float = 0
 var levels: Array
 var distance: float = 0
 var terrain_velocity: float = 5.0

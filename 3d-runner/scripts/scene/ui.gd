@@ -11,6 +11,7 @@ class_name UI
 @onready var label: Label = $HBoxContainer/Label
 @onready var level_label: Label = %Level
 @onready var try_again: Button = %TryAgain
+@onready var best: Label = $Best
 
 func _physics_process(_delta: float) -> void:
 	if not ready:
@@ -18,6 +19,7 @@ func _physics_process(_delta: float) -> void:
 	distance.text = "Distance: " + str(snappedi(GameState.distance,1))
 	speed.text = "Speed: " + str(snappedi(GameState.terrain_velocity,1))
 	level_label.text = "Level: " + str(GameState.current_level+1)
+	best.text = "Best: " +  str(snappedi(GameState.best,1))
 
 
 func _on_try_again_pressed() -> void:
@@ -33,6 +35,8 @@ func show_end_screen(reason: String) -> void:
 	max_speed.text = "Max Speed Achieved: " + str(snappedi(GameState.terrain_velocity,1))
 	total_distance.text = "Total Distance Travelled: " +  str(snappedi(GameState.distance,1))
 	level.text = "Level: " + str(GameState.current_level+1)
+	if GameState.distance > GameState.best:
+		GameState.best = GameState.distance
 	end_screen.show()
 	try_again.grab_focus()
 	

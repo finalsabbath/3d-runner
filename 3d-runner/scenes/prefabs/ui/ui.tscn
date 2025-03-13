@@ -115,5 +115,14 @@ theme_override_font_sizes/font_size = 30
 text = "Reason Run Ended"
 horizontal_alignment = 1
 
+[node name="Best" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1002.0
+offset_top = 4.0
+offset_right = 1081.0
+offset_bottom = 27.0
+theme = ExtResource("2_6ikxf")
+text = "Best: 0"
+
 [connection signal="pressed" from="EndScreen/HBoxContainer/TryAgain" to="." method="_on_try_again_pressed"]
 [connection signal="pressed" from="EndScreen/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
