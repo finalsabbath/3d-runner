@@ -12,7 +12,6 @@ func _ready() -> void:
 	start.grab_focus()
 
 func _on_start_pressed() -> void:
-	#GameStats.setup_game()
 	get_tree().change_scene_to_file(GameState.WORLD_SCENE)
 
 
