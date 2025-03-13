@@ -39,5 +39,5 @@ func _physics_process(delta: float) -> void:
 	if position.y < -10:
 		EventBus.run_end.emit("Fell down a hole")
 
-func process_pickup() -> void:
-	pass
+func process_pickup(value: float) -> void:
+	GameState.multiplier += value

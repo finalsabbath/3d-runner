@@ -1,17 +1,22 @@
 extends Control
 class_name UI
 
+@onready var end_screen: Panel = $EndScreen
+
+# Top UI
 @onready var distance: Label = %Distance
 @onready var speed: Label = %Speed
+@onready var best: Label = $Best
+@onready var multiplier: Label = %Multiplier
+
+#End Screen
+@onready var end_reason: Label = %EndReason
 @onready var max_speed: Label = $EndScreen/VBoxContainer/MaxSpeed
 @onready var total_distance: Label = $EndScreen/VBoxContainer/TotalDistance
 @onready var level: Label = $EndScreen/VBoxContainer/Level
-@onready var end_screen: Panel = $EndScreen
-@onready var end_reason: Label = %EndReason
-@onready var label: Label = $HBoxContainer/Label
+@onready var score: Label = $EndScreen/VBoxContainer/Score
 @onready var level_label: Label = %Level
 @onready var try_again: Button = %TryAgain
-@onready var best: Label = $Best
 
 func _physics_process(_delta: float) -> void:
 	if not ready:
@@ -20,6 +25,7 @@ func _physics_process(_delta: float) -> void:
 	speed.text = "Speed: " + str(snappedi(GameState.terrain_velocity,1))
 	level_label.text = "Level: " + str(GameState.current_level+1)
 	best.text = "Best: " +  str(snappedi(GameState.best,1))
+	multiplier.text = "Multiplier: " +  str(snappedf(GameState.multiplier,0.1))
 
 
 func _on_try_again_pressed() -> void:
@@ -35,8 +41,10 @@ func show_end_screen(reason: String) -> void:
 	max_speed.text = "Max Speed Achieved: " + str(snappedi(GameState.terrain_velocity,1))
 	total_distance.text = "Total Distance Travelled: " +  str(snappedi(GameState.distance,1))
 	level.text = "Level: " + str(GameState.current_level+1)
-	if GameState.distance > GameState.best:
-		GameState.best = GameState.distance
+	GameState.score = snappedi((GameState.distance * GameState.multiplier),1)
+	score.text = "Score: " + str(GameState.score)
+	if GameState.score > GameState.best:
+		GameState.best = GameState.score
 	end_screen.show()
 	try_again.grab_focus()
 	

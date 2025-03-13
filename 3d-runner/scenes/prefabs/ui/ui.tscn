@@ -40,7 +40,8 @@ layout_mode = 2
 theme = ExtResource("2_6ikxf")
 text = "Distance: 0"
 
-[node name="Label" type="Label" parent="HBoxContainer"]
+[node name="Multiplier" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("2_6ikxf")
 
@@ -54,10 +55,10 @@ offset_bottom = 578.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="EndScreen"]
 layout_mode = 0
-offset_left = 154.0
-offset_top = 132.0
-offset_right = 480.0
-offset_bottom = 229.0
+offset_left = 153.0
+offset_top = 108.0
+offset_right = 479.0
+offset_bottom = 304.0
 theme_override_constants/separation = 20
 
 [node name="Level" type="Label" parent="EndScreen/VBoxContainer"]
@@ -74,6 +75,15 @@ text = "Max Speed Achieved: 0"
 layout_mode = 2
 theme = ExtResource("2_6ikxf")
 text = "Total Distance Travelled: 0"
+
+[node name="Spacer" type="Label" parent="EndScreen/VBoxContainer"]
+layout_mode = 2
+
+[node name="Score" type="Label" parent="EndScreen/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_6ikxf")
+theme_override_font_sizes/font_size = 30
+text = "Total Score: 0"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="EndScreen"]
 custom_minimum_size = Vector2(20, 0)

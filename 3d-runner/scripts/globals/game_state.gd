@@ -1,28 +1,37 @@
 extends Node
 
+# Default values
 const STARTING_SPEED: float = 5.0
+
+# Max values
 const MAX_LEVEL: int = 6
 const NUM_LEVELS:int = 6
+
+# Paths
 const MUSIC_PATH = "res://assets/music/levels"
 const WORLD_SCENE = "res://scenes/world.tscn"
 const TERRAIN_BLOCKS_PATH = "res://scenes/prefabs/terrain_blocks"
 const OBSTACLES_PATH = "res://scenes/prefabs/obstacles"
 
+# Current run values
 var current_level:int = 0
-var best: float = 0
 var levels: Array
 var distance: float = 0
-var terrain_velocity: float = 5.0
+var multiplier: float = 0
+var score: int = 0
 var player_speed: float = 5.0
+var terrain_velocity: float = 5.0
 
-#Terrain generation arrays
+# Persistant values
+var best: float = 0
+
+# Terrain generation arrays
 var TerrainBlocks: Array = []
 var Obstacles: Array = []
 
 #Level arrays
 var colors: Array = [Color.RED,Color.ORANGE,Color.YELLOW,Color.GREEN,Color.BLUE,Color.INDIGO,Color.VIOLET]
 var music_tracks: Array = []
-
 
 func setup_game() -> void:
 	_load_music_tracks(MUSIC_PATH)

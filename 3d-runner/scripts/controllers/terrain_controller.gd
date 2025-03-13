@@ -15,7 +15,6 @@ var terrain_belt: Array[Node3D] = []
 
 @export var num_terrain_blocks = 4
 
-
 func _ready() -> void:
 	_init_blocks(num_terrain_blocks)
 
@@ -85,12 +84,10 @@ func _add_pits(block: Node3D,num_obstacles: int) -> void:
 		_spawn_pickup(pickup_pos, block)
 		remove_panel.queue_free()
 		
-
 func _spawn_pickup(pos: Vector3,block: Node3D) -> void:
 	var new_pickup = PICKUP.instantiate()
 	new_pickup.position = pos
 	block.add_child(new_pickup)
-	print("added new pickup at " + str(pos.x))
 
 func _get_obstacle_position(type) -> float:
 	var pos_x: float = 0

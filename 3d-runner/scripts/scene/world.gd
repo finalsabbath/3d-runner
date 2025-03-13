@@ -36,6 +36,7 @@ func retry() -> void:
 	GameState.terrain_velocity = GameState.STARTING_SPEED
 	GameState.current_level = 0
 	GameState.player_speed = 5.0
+	GameState.multiplier = 0
 	get_tree().reload_current_scene()
 
 func run_end(reason: String) -> void:
