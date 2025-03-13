@@ -30,11 +30,15 @@ scale = Vector2(1.32187, 1.19687)
 texture = ExtResource("2_bqqt6")
 
 [node name="Start" type="Button" parent="."]
+unique_name_in_owner = true
 layout_mode = 0
-offset_left = 488.0
-offset_top = 485.0
-offset_right = 571.0
-offset_bottom = 538.0
+offset_left = 493.0
+offset_top = 436.0
+offset_right = 576.0
+offset_bottom = 489.0
+focus_neighbor_right = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Quit")
 theme_override_font_sizes/font_size = 32
 text = "Start"
 
@@ -44,6 +48,9 @@ offset_left = 1019.0
 offset_top = 553.0
 offset_right = 1094.0
 offset_bottom = 606.0
+focus_neighbor_left = NodePath("../Start")
+focus_next = NodePath("../Start")
+focus_previous = NodePath("../Start")
 theme_override_font_sizes/font_size = 32
 text = "Quit"
 

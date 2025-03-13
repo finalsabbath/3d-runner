@@ -1,13 +1,14 @@
 extends Control
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var start: Button = %Start
 
 var color_num: int = 0
 var next_color = GameState.colors[0]
 
-
 func _ready() -> void:
 	GameState.setup_game()
+	start.grab_focus()
 
 func _on_start_pressed() -> void:
 	#GameStats.setup_game()

@@ -10,8 +10,7 @@ class_name UI
 @onready var end_reason: Label = %EndReason
 @onready var label: Label = $HBoxContainer/Label
 @onready var level_label: Label = %Level
-
-
+@onready var try_again: Button = %TryAgain
 
 func _physics_process(_delta: float) -> void:
 	if not ready:
@@ -35,4 +34,5 @@ func show_end_screen(reason: String) -> void:
 	total_distance.text = "Total Distance Travelled: " +  str(snappedi(GameState.distance,1))
 	level.text = "Level: " + str(GameState.current_level+1)
 	end_screen.show()
+	try_again.grab_focus()
 	

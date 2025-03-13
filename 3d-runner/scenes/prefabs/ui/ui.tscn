@@ -75,13 +75,20 @@ offset_bottom = 342.0
 theme_override_constants/separation = 50
 
 [node name="TryAgain" type="Button" parent="EndScreen/HBoxContainer"]
+unique_name_in_owner = true
 process_mode = 3
 layout_mode = 2
+focus_neighbor_right = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Quit")
 text = "Try Again"
 
 [node name="Quit" type="Button" parent="EndScreen/HBoxContainer"]
 process_mode = 3
 layout_mode = 2
+focus_neighbor_left = NodePath("../TryAgain")
+focus_next = NodePath("../TryAgain")
+focus_previous = NodePath("../TryAgain")
 text = "Quit"
 
 [node name="EndReason" type="Label" parent="EndScreen"]
