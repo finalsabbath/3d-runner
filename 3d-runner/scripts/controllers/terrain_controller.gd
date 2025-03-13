@@ -86,8 +86,9 @@ func _get_obstacle_position(type) -> float:
 		Enums.ObstacleType.BARRIER:
 			options.append(4)
 			options.append(-4)
+			options.append(0)
 			pos_x = options[randi() % options.size()]
 		Enums.ObstacleType.BOX:
-			pos_x = randf_range(-TERRAIN_WIDTH/2,TERRAIN_WIDTH/2)
+			pos_x = randf_range((-TERRAIN_WIDTH/2)+1,(TERRAIN_WIDTH/2)-1)
 		
 	return pos_x

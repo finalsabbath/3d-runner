@@ -43,7 +43,7 @@ Game should be playable here: https://finalsabbath.itch.io/mad-rush
 <a id="built-with"></a>
 
 - Game Engine - Godot
-- Graphics - Aesprite
+- Graphics - Aesprite, GIMP
 
 ## Controls
 
