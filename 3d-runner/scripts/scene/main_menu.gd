@@ -2,7 +2,7 @@ extends Control
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var start: Button = %Start
-@onready var background_2: TextureRect = $Background2
+@onready var background: TextureRect = $Background
 
 var color_num: int = 0
 var next_color = GameState.colors[0]
@@ -24,7 +24,7 @@ func _physics_process(_delta: float) -> void:
 		await ready
 	sprite_2d.modulate = sprite_2d.modulate.lerp(next_color,.01)
 	var master_bus_volume = (AudioServer.get_bus_peak_volume_left_db(0,0) + AudioServer.get_bus_peak_volume_right_db(0,0)) / 2
-	background_2.modulate.v = -master_bus_volume /200
+	background.modulate.v = -master_bus_volume /200
 
 
 func _on_timer_timeout() -> void:
