@@ -29,6 +29,7 @@ var terrain_velocity: float = 5.0
 # Persistant values
 var player_name: String
 var best: float = 0
+var best_id: String
 var setup_complete: bool = false
 
 # Terrain generation arrays
@@ -94,6 +95,7 @@ func set_and_save() -> void:
 func set_data() -> void:
 	config.set_value("Player","name",player_name)
 	config.set_value("Player","best",best)
+	config.set_value("Player","best_id",best_id)
 
 func save_data() -> void:
 	config.save(SAVE_PATH)
@@ -104,3 +106,4 @@ func load_data():
 	
 	player_name = config.get_value("Player","name", 1000)
 	best = config.get_value("Player","best", 1000)
+	best_id = config.get_value("Player","best_id", 1000)

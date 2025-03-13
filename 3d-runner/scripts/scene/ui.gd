@@ -41,11 +41,16 @@ func show_end_screen(reason: String) -> void:
 	max_speed.text = "Max Speed Achieved: " + str(snappedi(GameState.terrain_velocity,1))
 	total_distance.text = "Total Distance Travelled: " +  str(snappedi(GameState.distance,1))
 	level.text = "Level: " + str(GameState.current_level+1)
-	GameState.score = snappedi((GameState.distance * GameState.multiplier),1)
+	if GameState.multiplier != 0:
+		GameState.score = snappedi((GameState.distance * GameState.multiplier),1)
+	else:
+		GameState.score = snappedi((GameState.distance),1)
 	score.text = "Score: " + str(GameState.score)
+	var scores = SilentWolf.Scores.save_score(GameState.player_name, GameState.score)
 	if GameState.score > GameState.best:
 		GameState.best = GameState.score
-	SilentWolf.Scores.save_score(GameState.player_name, GameState.score)
+		GameState.best_id = scores.scoreid
+	
 	GameState.set_and_save()
 	end_screen.show()
 	try_again.grab_focus()
