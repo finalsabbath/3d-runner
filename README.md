@@ -38,9 +38,9 @@ Game should be playable here: https://finalsabbath.itch.io/mad-rush
 
 ## Controls
 <a id="controls"></a>
-- Move Left     | A, ←, Joypad left stick left, Joypad D-Pad left
-- Move Right    | D, →, Joypad left stick right, Joypad D-Pad right
-- Jump          | Space, Joypad Button 0
+- **Move Left**     | A, ←, Joypad left stick left, Joypad D-Pad left
+- **Move Right**    | D, →, Joypad left stick right, Joypad D-Pad right
+- **Jump**          | Space, Joypad Button 0
 
 
 ## Acknowledgments
