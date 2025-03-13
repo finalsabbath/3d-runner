@@ -1,4 +1,4 @@
-# 3d-runner
+# Mad Rush
 <a id="readme-top"></a>
 <!-- PROJECT LOGO -->
 <br />
