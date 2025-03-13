@@ -34,7 +34,8 @@ func _on_try_again_pressed() -> void:
 	EventBus.retry.emit()
 
 func _on_quit_pressed() -> void:
-	get_tree().quit()
+	get_tree().paused = false
+	get_tree().change_scene_to_file(GameState.MAIN_MENU_SCENE)
 
 func show_end_screen(reason: String) -> void:
 	end_reason.text = reason
@@ -49,7 +50,7 @@ func show_end_screen(reason: String) -> void:
 	var scores = SilentWolf.Scores.save_score(GameState.player_name, GameState.score)
 	if GameState.score > GameState.best:
 		GameState.best = GameState.score
-		GameState.best_id = scores.scoreid
+		GameState.best_id = scores.score_id
 	
 	GameState.set_and_save()
 	end_screen.show()

@@ -10,6 +10,7 @@ const NUM_LEVELS:int = 6
 # Paths
 const MUSIC_PATH = "res://assets/music/levels"
 const WORLD_SCENE = "res://scenes/world.tscn"
+const MAIN_MENU_SCENE = "res://scenes/main_menu.tscn"
 const TERRAIN_BLOCKS_PATH = "res://scenes/prefabs/terrain_blocks"
 const OBSTACLES_PATH = "res://scenes/prefabs/obstacles"
 const SAVE_PATH = "user://player_data.cfg"
@@ -44,7 +45,7 @@ func setup_game() -> void:
 	_load_music_tracks(MUSIC_PATH)
 	_load_terrain(TERRAIN_BLOCKS_PATH)
 	_load_obstacles(OBSTACLES_PATH)
-	_configure_leaderboard()
+	configure_leaderboard()
 	setup_complete = true
 
 func _load_music_tracks(target_path: String) -> void:
@@ -72,7 +73,7 @@ func _load_obstacles(target_path: String) -> void:
 		print("Loading obstacle scene: " + target_path + "/" + scene_path)
 		Obstacles.append(load(target_path + "/" + scene_path))
 
-func _configure_leaderboard() -> void:
+func configure_leaderboard() -> void:
 	var file = "res://addons/silent_wolf/.env"
 	var env_content = FileAccess.get_file_as_string(file)
 	var env_dict = JSON.parse_string(env_content)

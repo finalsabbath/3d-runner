@@ -111,7 +111,7 @@ focus_neighbor_left = NodePath("../TryAgain")
 focus_next = NodePath("../TryAgain")
 focus_previous = NodePath("../TryAgain")
 theme = ExtResource("2_6ikxf")
-text = "Quit"
+text = "Menu"
 
 [node name="EndReason" type="Label" parent="EndScreen"]
 unique_name_in_owner = true

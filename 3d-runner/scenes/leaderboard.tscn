@@ -18,6 +18,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 149.0
+offset_top = 11.0
+offset_right = -208.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_wgq7h")
@@ -60,12 +64,12 @@ text = "Leaderboard"
 
 [node name="ReturnMenu" type="Button" parent="."]
 layout_mode = 0
-offset_left = 286.0
-offset_top = 547.0
-offset_right = 848.0
-offset_bottom = 598.0
+offset_left = 427.0
+offset_top = 544.0
+offset_right = 659.0
+offset_bottom = 595.0
 theme = ExtResource("3_8lgqg")
 theme_override_font_sizes/font_size = 20
-text = "Return to Main Menu"
+text = "Close"
 
 [connection signal="pressed" from="ReturnMenu" to="." method="_on_return_menu_pressed"]

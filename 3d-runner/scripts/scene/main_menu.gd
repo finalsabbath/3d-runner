@@ -39,4 +39,7 @@ func _on_timer_timeout() -> void:
 
 
 func _on_leaderboard_pressed() -> void:
+	GameState.configure_leaderboard()
+	leaderboard_panel.populate_scores()
 	leaderboard_panel.show()
+	leaderboard_panel.return_menu.grab_focus()
