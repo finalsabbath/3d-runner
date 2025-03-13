@@ -79,7 +79,7 @@ func _configure_leaderboard() -> void:
 	SilentWolf.configure({
 		"api_key": env_dict["API_KEY"],
 		"game_id": env_dict["GAME_ID"],	
-		"log_level": 1
+		"log_level": 0
 	})
 
 	SilentWolf.configure_scores({

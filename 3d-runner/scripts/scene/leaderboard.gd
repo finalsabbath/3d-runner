@@ -20,6 +20,9 @@ func _ready() -> void:
 		new_player_label.text = str(score.score)
 		new_player_label.theme = DEFAULT_THEME
 		new_score_label.theme = DEFAULT_THEME
+		if score.player_name == GameState.player_name:
+			new_player_label.add_theme_color_override("font_color",Color.ORANGE)
+			new_score_label.add_theme_color_override("font_color",Color.ORANGE)
 		scores_container.add_child(new_score_label)
 		players_container.add_child(new_player_label)
 
