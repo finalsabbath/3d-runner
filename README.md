@@ -34,7 +34,7 @@ First attempt at creating a 3D game for godot and first time actually trying to 
 
 My focus for this game was to work on understanding building games in 3D and try to make as much terrian generation random as I could. In an attempt to make it more visually interesting I tied some of the environmental effects to the music.
 
-Given obstacles are placed randomly it can lead to some extreemly difficult or sometimes impossible manuevers. I have done my best to stamp out the latter given the time constraints.
+Given obstacles are placed randomly it can lead to some extremely difficult or sometimes impossible manuevers. I have done my best to stamp out the latter given the time constraints.
 
 Game should be playable here: https://finalsabbath.itch.io/mad-rush
 
