@@ -47,10 +47,11 @@ func show_end_screen(reason: String) -> void:
 	else:
 		GameState.score = snappedi((GameState.distance),1)
 	score.text = "Score: " + str(GameState.score)
-	var scores = SilentWolf.Scores.save_score(GameState.player_name, GameState.score)
-	if GameState.score > GameState.best:
-		GameState.best = GameState.score
-		GameState.best_id = scores.score_id
+	if !GameState.debug_enabled:
+		var scores = SilentWolf.Scores.save_score(GameState.player_name, GameState.score)
+		if GameState.score > GameState.best:
+			GameState.best = GameState.score
+			GameState.best_id = scores.score_id
 	
 	GameState.set_and_save()
 	end_screen.show()

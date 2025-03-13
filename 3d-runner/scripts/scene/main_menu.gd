@@ -10,8 +10,9 @@ var color_num: int = 0
 var next_color = GameState.colors[0]
 
 func _ready() -> void:
-	GameState.load_data()
-	GameState.setup_game()
+	if !GameState.setup_complete:
+		GameState.load_data()
+		GameState.setup_game()
 	start.grab_focus()
 	if GameState.player_name == "":
 		name_entry.show()

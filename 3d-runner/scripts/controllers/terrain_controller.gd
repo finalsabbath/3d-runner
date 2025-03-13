@@ -7,12 +7,11 @@ const TERRAIN_WIDTH: float = 16.0
 const VELOCITY_MULT: int = 10
 const STARTER_BLOCKS: int = 1
 const MAX_OBSTACLES: int = 5
-
+const BARRIER_LIMIT: int = 2
 
 const PICKUP = preload("res://scenes/prefabs/pickup.tscn")
 
 var count_starter_blocks = 0
-var debug_enabled: bool = false
 
 var terrain_belt: Array[Node3D] = []
 
@@ -30,7 +29,7 @@ func _physics_process(delta: float) -> void:
 
 func _init_blocks(number_of_blocks: int) -> void:
 	for block_index in number_of_blocks:
-		var block = GameState.TerrainBlocks.pick_random().instantiate()
+		var block = GameState.terrainBlocks.pick_random().instantiate()
 		
 		if block_index == 0:
 			block.position.z = TERRAIN_LENGTH/2
@@ -52,7 +51,7 @@ func _progress_terrain(delta: float) -> void:
 		var last_terrain = terrain_belt[-1]
 		var first_terrain = terrain_belt.pop_front()
 
-		var block = GameState.TerrainBlocks.pick_random().instantiate()
+		var block = GameState.terrainBlocks.pick_random().instantiate()
 		_append_to_far_edge(last_terrain, block,true)
 		add_child(block)
 		terrain_belt.append(block)
@@ -64,13 +63,19 @@ func _append_to_far_edge(target_block: Node3D, appending_block: Node3D, add_obst
 		_add_obstacles(appending_block)
 
 func _add_obstacles(block: Node3D) -> void:
+	var barrier_count: int = 0
 	var num_obstacles = GameState.current_level + 1
 	if num_obstacles > MAX_OBSTACLES:
 		num_obstacles = MAX_OBSTACLES
-	if !debug_enabled:
+	if !GameState.debug_enabled:
 		_add_pits(block,num_obstacles)
 		for i in range(num_obstacles):
-			var new_obstacle = GameState.Obstacles.pick_random().instantiate()
+			var selected_obstacle = GameState.obstacles.pick_random()
+			if "barrier" in selected_obstacle.resource_path:
+				barrier_count +=1
+			if barrier_count > BARRIER_LIMIT:
+				selected_obstacle = GameState.obstacles_no_barrier.pick_random()
+			var new_obstacle = selected_obstacle.instantiate()
 			new_obstacle.position.x = _get_obstacle_position(new_obstacle.type)
 			var separation: float = TERRAIN_LENGTH/num_obstacles/2
 			new_obstacle.position.z -= (i+1) * separation

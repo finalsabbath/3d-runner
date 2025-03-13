@@ -34,12 +34,17 @@ var best_id: String
 var setup_complete: bool = false
 
 # Terrain generation arrays
-var TerrainBlocks: Array = []
-var Obstacles: Array = []
+var terrainBlocks: Array = []
+var obstacles: Array = []
+var obstacles_no_barrier: Array = []
 
-#Level arrays
+# Level arrays
 var colors: Array = [Color.RED,Color.ORANGE,Color.YELLOW,Color.GREEN,Color.BLUE,Color.INDIGO,Color.VIOLET]
 var music_tracks: Array = []
+
+# Debug mode
+# Prevents obstacles/pits and disables saving run data
+var debug_enabled: bool = false
 
 func setup_game() -> void:
 	_load_music_tracks(MUSIC_PATH)
@@ -63,7 +68,7 @@ func _load_terrain(target_path: String) -> void:
 		if ".remap" in scene_path:
 			scene_path = scene_path.trim_suffix('.remap')
 		print("Loading terrian block scene: " + target_path + "/" + scene_path)
-		TerrainBlocks.append(load(target_path + "/" + scene_path))
+		terrainBlocks.append(load(target_path + "/" + scene_path))
 
 func _load_obstacles(target_path: String) -> void:
 	var dir = DirAccess.open(target_path)
@@ -71,7 +76,10 @@ func _load_obstacles(target_path: String) -> void:
 		if ".remap" in scene_path:
 			scene_path = scene_path.trim_suffix('.remap')
 		print("Loading obstacle scene: " + target_path + "/" + scene_path)
-		Obstacles.append(load(target_path + "/" + scene_path))
+		obstacles.append(load(target_path + "/" + scene_path))
+		if "barrier" not in scene_path:
+			obstacles_no_barrier.append(load(target_path + "/" + scene_path))
+
 
 func configure_leaderboard() -> void:
 	var file = "res://addons/silent_wolf/.env"
