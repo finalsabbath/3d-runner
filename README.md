@@ -36,7 +36,7 @@ My focus for this game was to work on understanding building games in 3D and try
 
 Given obstacles are placed randomly it can lead to some extremely difficult or sometimes impossible manuevers. I have done my best to stamp out the latter given the time constraints.
 
-<a href="https://finalsabbath.itch.io/mad-rush">Mad Rush by finalsabbath</a>
+<a href="https://finalsabbath.itch.io/mad-rush">Play it here</a>
 
 ## Built with
 
