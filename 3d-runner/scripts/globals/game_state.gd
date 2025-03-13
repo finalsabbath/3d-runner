@@ -37,6 +37,7 @@ func setup_game() -> void:
 	_load_music_tracks(MUSIC_PATH)
 	_load_terrain(TERRAIN_BLOCKS_PATH)
 	_load_obstacles(OBSTACLES_PATH)
+	_configure_leaderboard()
 	print("Setup complete")
 
 func _load_music_tracks(target_path: String) -> void:
@@ -63,3 +64,18 @@ func _load_obstacles(target_path: String) -> void:
 			scene_path = scene_path.trim_suffix('.remap')
 		print("Loading obstacle scene: " + target_path + "/" + scene_path)
 		Obstacles.append(load(target_path + "/" + scene_path))
+
+func _configure_leaderboard() -> void:
+	var file = "res://addons/silent_wolf/.env"
+	var env_content = FileAccess.get_file_as_string(file)
+	var env_dict = JSON.parse_string(env_content)
+	
+	SilentWolf.configure({
+		"api_key": env_dict["API_KEY"],
+		"game_id": env_dict["GAME_ID"],	
+		"log_level": 1
+	})
+
+	SilentWolf.configure_scores({
+		"open_scene_on_close": "res://scenes/main_menu.tscn"
+	})

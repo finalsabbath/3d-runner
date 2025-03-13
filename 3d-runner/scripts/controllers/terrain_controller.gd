@@ -1,11 +1,14 @@
 extends Node3D
 class_name TerrainController
 
+# Terrain gen constants
 const TERRAIN_LENGTH: float = 16.0
 const TERRAIN_WIDTH: float = 16.0
 const VELOCITY_MULT: int = 10
 const STARTER_BLOCKS: int = 1
 const MAX_OBSTACLES: int = 5
+
+
 const PICKUP = preload("res://scenes/prefabs/pickup.tscn")
 
 var count_starter_blocks = 0
