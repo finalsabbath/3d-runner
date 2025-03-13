@@ -30,19 +30,19 @@
 <a id="about-the-project"></a>
 Created for Core Mechanics Challenge
 
-First attempt at creating a 3D game for godot and first time actually trying to submit something.
+First attempt at creating a 3D game in Godot and first time actually trying to submit something.
 
-My focus for this game was to work on understanding building games in 3D and try to make as much terrian generation random as I could. In an attempt to make it more visually interesting I tied some of the environmental effects to the music.
+My focus for this game was to work on understanding building games in 3D and try to make as much terrain generation random as I could. In an attempt to make it more visually interesting I tied some of the environmental effects to the music.
 
 Given obstacles are placed randomly it can lead to some extremely difficult or sometimes impossible manuevers. I have done my best to stamp out the latter given the time constraints.
 
-Game should be playable here: https://finalsabbath.itch.io/mad-rush
+<iframe frameborder="0" src="https://itch.io/embed/3390007" width="552" height="167"><a href="https://finalsabbath.itch.io/mad-rush">Mad Rush by finalsabbath</a></iframe>
 
 ## Built with
 
 <a id="built-with"></a>
 
-- Game Engine - Godot
+- Game Engine - Godotgit
 - Graphics - Aesprite, GIMP
 
 ## Controls
