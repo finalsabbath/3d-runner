@@ -3,7 +3,7 @@ extends Node
 const STARTING_SPEED: float = 5.0
 const MAX_LEVEL: int = 6
 const NUM_LEVELS:int = 6
-const MUSIC_PATH = "res://assets/music"
+const MUSIC_PATH = "res://assets/music/levels"
 const WORLD_SCENE = "res://scenes/world.tscn"
 const TERRAIN_BLOCKS_PATH = "res://scenes/prefabs/terrain_blocks"
 const OBSTACLES_PATH = "res://scenes/prefabs/obstacles"
