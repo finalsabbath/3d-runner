@@ -1,5 +1,7 @@
 # Mad Rush
+
 <a id="readme-top"></a>
+
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -24,29 +26,35 @@
 </details>
 
 ## About the Project
+
 <a id="about-the-project"></a>
 Created for Core Mechanics Challenge
 
 First attempt at creating a 3D game for godot and first time actually trying to submit something.
 
+My focus for this game was to work on understanding building games in 3D and try to make as much terrian generation random as I could. In an attempt to make it more visually interesting I tied some of the environmental effects to the music.
+
 Game should be playable here: https://finalsabbath.itch.io/mad-rush
 
 ## Built with
+
 <a id="built-with"></a>
+
 - Game Engine - Godot
 - Graphics - Aesprite
 
 ## Controls
-<a id="controls"></a>
-- **Move Left**     | A, ←, Joypad left stick left, Joypad D-Pad left
-- **Move Right**    | D, →, Joypad left stick right, Joypad D-Pad right
-- **Jump**          | Space, Joypad Button 0
 
+<a id="controls"></a>
+
+- **Move Left** | A, ←, Joypad left stick left, Joypad D-Pad left
+- **Move Right** | D, →, Joypad left stick right, Joypad D-Pad right
+- **Jump** | Space, Joypad Button 0
 
 ## Acknowledgments
+
 <a id="acknowledgments"></a>
 
 - ExploreGameDev for terrain belt design for 3D runner : https://youtu.be/1jNt91A2PW0?si=0WCnfxj0mGUR-A9b
 - Abstraction for music : https://tallbeard.itch.io/music-loop-bundle
-- Prinbles for some art assets : https://prinbles.itch.io/silent
-
+- Prinbles for art assets : https://prinbles.itch.io/silent
