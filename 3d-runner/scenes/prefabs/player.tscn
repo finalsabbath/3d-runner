@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dcbnisljy5htt" path="res://scripts/scene/player.gd" id="1_3vyb7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e5uuo"]
+radius = 0.3
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_nnsk1"]
 
@@ -17,4 +18,4 @@ visible = false
 mesh = SubResource("CapsuleMesh_nnsk1")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.999668, -0.0257583, 0, 0.0257583, 0.999668, 0, 0.572753, 0.42096)
+transform = Transform3D(1, 0, 0, 0, 0.999668, -0.0257583, 0, 0.0257583, 0.999668, 0, 0.572753, 0.460871)

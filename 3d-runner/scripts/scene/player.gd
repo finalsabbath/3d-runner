@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @export var fall_acceleration = 75
 @export var jump_impulse = 20
+@export var isplayer: bool = true
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var camera_3d: Camera3D = $Camera3D
 
@@ -37,3 +38,6 @@ func _physics_process(delta: float) -> void:
 	#check fall death
 	if position.y < -10:
 		EventBus.run_end.emit("Fell down a hole")
+
+func process_pickup() -> void:
+	pass

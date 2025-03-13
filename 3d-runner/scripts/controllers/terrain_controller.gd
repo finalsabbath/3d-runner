@@ -6,6 +6,7 @@ const TERRAIN_WIDTH: float = 16.0
 const VELOCITY_MULT: int = 10
 const STARTER_BLOCKS: int = 1
 const MAX_OBSTACLES: int = 5
+const PICKUP = preload("res://scenes/prefabs/pickup.tscn")
 
 var count_starter_blocks = 0
 var debug_enabled: bool = false
@@ -71,15 +72,26 @@ func _add_obstacles(block: Node3D) -> void:
 			new_obstacle.position.x = _get_obstacle_position(new_obstacle.type)
 			var separation: float = TERRAIN_LENGTH/num_obstacles/2
 			new_obstacle.position.z -= (i+1) * separation
+			#_spawn_pickup(new_obstacle.position)
 			new_obstacle.add_to_group("death_blocks")
 			block.add_child(new_obstacle)
 	
 func _add_pits(block: Node3D,num_obstacles: int) -> void:
 	for i in range(num_obstacles):
 		var remove = randi_range(0,15)
-		var panels = block.get_children()
-		panels[remove].queue_free()
+		var remove_panel = block.get_children()[remove]
+		var pickup_pos = remove_panel.position
+		pickup_pos.y += 2
+		_spawn_pickup(pickup_pos, block)
+		remove_panel.queue_free()
 		
+
+func _spawn_pickup(pos: Vector3,block: Node3D) -> void:
+	var new_pickup = PICKUP.instantiate()
+	new_pickup.position = pos
+	block.add_child(new_pickup)
+	print("added new pickup at " + str(pos.x))
+
 func _get_obstacle_position(type) -> float:
 	var pos_x: float = 0
 	var options: Array = []
