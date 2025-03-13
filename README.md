@@ -48,4 +48,5 @@ Game should be playable here: https://finalsabbath.itch.io/mad-rush
 
 - ExploreGameDev for terrain belt design for 3D runner : https://youtu.be/1jNt91A2PW0?si=0WCnfxj0mGUR-A9b
 - Abstraction for music : https://tallbeard.itch.io/music-loop-bundle
+- Prinbles for some art assets : https://prinbles.itch.io/silent
 

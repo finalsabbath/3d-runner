@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dksifru4vppkf"]
+[gd_scene load_steps=5 format=3 uid="uid://dksifru4vppkf"]
 
 [ext_resource type="Script" uid="uid://sbfihikmqibm" path="res://scripts/scene/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://sjeykdcuaj70" path="res://assets/art/mad-rush-logo.png" id="2_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://bk64d3ol2qabf" path="res://assets/ui/Headless.png" id="2_wu84c"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_vue75"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_bqqt6"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -14,28 +15,41 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ekxnf")
 
-[node name="Background" type="TextureRect" parent="."]
-modulate = Color(0.252028, 0.252028, 0.252028, 1)
+[node name="Background2" type="TextureRect" parent="."]
+modulate = Color(0.299547, 0.299547, 0.299547, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("CanvasTexture_vue75")
+texture = SubResource("CanvasTexture_bqqt6")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = 13.0
+offset_right = -5.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wu84c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(532, 212)
-scale = Vector2(1.32187, 1.19687)
+position = Vector2(579, 307)
+scale = Vector2(1.79062, 1.40312)
 texture = ExtResource("2_bqqt6")
 
 [node name="Start" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 493.0
-offset_top = 436.0
-offset_right = 576.0
-offset_bottom = 489.0
+offset_left = 530.0
+offset_top = 487.0
+offset_right = 613.0
+offset_bottom = 540.0
 focus_neighbor_right = NodePath("../Quit")
 focus_next = NodePath("../Quit")
 focus_previous = NodePath("../Quit")
@@ -44,10 +58,10 @@ text = "Start"
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1019.0
-offset_top = 553.0
-offset_right = 1094.0
-offset_bottom = 606.0
+offset_left = 944.0
+offset_top = 479.0
+offset_right = 1019.0
+offset_bottom = 532.0
 focus_neighbor_left = NodePath("../Start")
 focus_next = NodePath("../Start")
 focus_previous = NodePath("../Start")
