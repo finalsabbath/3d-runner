@@ -24,6 +24,7 @@ var terrain_velocity: float = 5.0
 
 # Persistant values
 var best: float = 0
+var setup_complete: bool = false
 
 # Terrain generation arrays
 var TerrainBlocks: Array = []
@@ -38,7 +39,7 @@ func setup_game() -> void:
 	_load_terrain(TERRAIN_BLOCKS_PATH)
 	_load_obstacles(OBSTACLES_PATH)
 	_configure_leaderboard()
-	print("Setup complete")
+	setup_complete = true
 
 func _load_music_tracks(target_path: String) -> void:
 	var dir = DirAccess.open(target_path)

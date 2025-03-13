@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfc5efco2j6hs"]
+
+[ext_resource type="Script" uid="uid://ch5wdgnc5vt2p" path="res://scripts/scene/leaderboard.gd" id="1_mrg81"]
+[ext_resource type="Texture2D" uid="uid://bk64d3ol2qabf" path="res://assets/ui/Headless.png" id="2_wgq7h"]
+[ext_resource type="Theme" uid="uid://csl7vlf1mo2bl" path="res://themes/default_theme.tres" id="3_8lgqg"]
+
+[node name="Leaderboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mrg81")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wgq7h")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 150.0
+offset_right = 520.0
+offset_bottom = 190.0
+theme_override_constants/separation = 100
+
+[node name="ScoresContainer" type="VBoxContainer" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Header" type="Label" parent="HBoxContainer/ScoresContainer"]
+layout_mode = 2
+theme = ExtResource("3_8lgqg")
+text = "Player"
+
+[node name="PlayersContainer" type="VBoxContainer" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Header2" type="Label" parent="HBoxContainer/PlayersContainer"]
+layout_mode = 2
+theme = ExtResource("3_8lgqg")
+text = "Scores"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 383.0
+offset_top = 44.0
+offset_right = 744.0
+offset_bottom = 91.0
+theme = ExtResource("3_8lgqg")
+theme_override_font_sizes/font_size = 40
+text = "Leaderboard"
+
+[node name="ReturnMenu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 547.0
+offset_right = 848.0
+offset_bottom = 598.0
+theme = ExtResource("3_8lgqg")
+theme_override_font_sizes/font_size = 20
+text = "Return to Main Menu"
+
+[connection signal="pressed" from="ReturnMenu" to="." method="_on_return_menu_pressed"]

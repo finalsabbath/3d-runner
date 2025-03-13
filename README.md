@@ -44,6 +44,7 @@ Given obstacles are placed randomly it can lead to some extremely difficult or s
 
 - Game Engine - Godotgit
 - Graphics - Aesprite, GIMP
+- Leaderboard - SilentWolf
 
 ## Controls
 

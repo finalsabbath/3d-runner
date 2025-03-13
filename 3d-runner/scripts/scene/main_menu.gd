@@ -3,6 +3,7 @@ extends Control
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var start: Button = %Start
 @onready var background: TextureRect = $Background
+@onready var leaderboard_panel: Control = $LeaderboardPanel
 
 var color_num: int = 0
 var next_color = GameState.colors[0]
@@ -31,3 +32,7 @@ func _on_timer_timeout() -> void:
 	if color_num >= 7:
 		color_num = 0
 	next_color = GameState.colors[color_num]
+
+
+func _on_leaderboard_pressed() -> void:
+	leaderboard_panel.show()
