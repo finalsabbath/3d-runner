@@ -45,7 +45,8 @@ func show_end_screen(reason: String) -> void:
 	score.text = "Score: " + str(GameState.score)
 	if GameState.score > GameState.best:
 		GameState.best = GameState.score
-	SilentWolf.Scores.save_score("TEST USER", GameState.score)
+	SilentWolf.Scores.save_score(GameState.player_name, GameState.score)
+	GameState.set_and_save()
 	end_screen.show()
 	try_again.grab_focus()
 	

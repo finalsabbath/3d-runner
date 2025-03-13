@@ -12,6 +12,10 @@ const MUSIC_PATH = "res://assets/music/levels"
 const WORLD_SCENE = "res://scenes/world.tscn"
 const TERRAIN_BLOCKS_PATH = "res://scenes/prefabs/terrain_blocks"
 const OBSTACLES_PATH = "res://scenes/prefabs/obstacles"
+const SAVE_PATH = "user://player_data.cfg"
+
+# Set up configfile
+@onready var config = ConfigFile.new()
 
 # Current run values
 var current_level:int = 0
@@ -23,6 +27,7 @@ var player_speed: float = 5.0
 var terrain_velocity: float = 5.0
 
 # Persistant values
+var player_name: String
 var best: float = 0
 var setup_complete: bool = false
 
@@ -80,3 +85,22 @@ func _configure_leaderboard() -> void:
 	SilentWolf.configure_scores({
 		"open_scene_on_close": "res://scenes/main_menu.tscn"
 	})
+	
+# Saving and loading
+func set_and_save() -> void:
+	set_data()
+	save_data()
+
+func set_data() -> void:
+	config.set_value("Player","name",player_name)
+	config.set_value("Player","best",best)
+
+func save_data() -> void:
+	config.save(SAVE_PATH)
+
+func load_data():
+	if config.load(SAVE_PATH) != OK:
+		set_and_save()
+	
+	player_name = config.get_value("Player","name", 1000)
+	best = config.get_value("Player","best", 1000)

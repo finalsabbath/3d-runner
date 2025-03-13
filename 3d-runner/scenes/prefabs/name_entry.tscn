@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://daoqmkv1p11ki"]
+
+[ext_resource type="Theme" uid="uid://csl7vlf1mo2bl" path="res://themes/default_theme.tres" id="1_ifm6s"]
+[ext_resource type="Script" uid="uid://316qtylm3oa3" path="res://scenes/prefabs/name_entry.gd" id="1_t1n28"]
+
+[node name="NameEntry" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t1n28")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 387.0
+offset_top = 232.0
+offset_right = 756.0
+offset_bottom = 457.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 27.0
+offset_right = 362.0
+offset_bottom = 74.0
+theme = ExtResource("1_ifm6s")
+theme_override_font_sizes/font_size = 35
+text = "Enter Name"
+
+[node name="NameEntry" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 90.0
+offset_right = 282.0
+offset_bottom = 138.0
+placeholder_text = "Enter Name"
+
+[node name="OK" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 158.0
+offset_right = 212.0
+offset_bottom = 202.0
+theme = ExtResource("1_ifm6s")
+text = "OK"
+
+[connection signal="pressed" from="Panel/OK" to="." method="_on_ok_pressed"]

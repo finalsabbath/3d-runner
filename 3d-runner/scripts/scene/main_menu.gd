@@ -4,13 +4,17 @@ extends Control
 @onready var start: Button = %Start
 @onready var background: TextureRect = $Background
 @onready var leaderboard_panel: Control = $LeaderboardPanel
+@onready var name_entry: Control = $NameEntry
 
 var color_num: int = 0
 var next_color = GameState.colors[0]
 
 func _ready() -> void:
+	GameState.load_data()
 	GameState.setup_game()
 	start.grab_focus()
+	if GameState.player_name == "":
+		name_entry.show()
 
 func _on_start_pressed() -> void:
 	get_tree().change_scene_to_file(GameState.WORLD_SCENE)
