@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7g56ctbwgala"]
+
+[ext_resource type="Theme" uid="uid://csl7vlf1mo2bl" path="res://assets/themes/default_theme.tres" id="1_n3nky"]
+[ext_resource type="Script" uid="uid://dhg2n8dxqiocr" path="res://scripts/scene/end_screen.gd" id="1_uwoud"]
+
+[node name="EndScreen" type="Panel"]
+offset_left = 259.0
+offset_top = 147.0
+offset_right = 896.0
+offset_bottom = 578.0
+script = ExtResource("1_uwoud")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 108.0
+offset_right = 479.0
+offset_bottom = 304.0
+theme_override_constants/separation = 20
+
+[node name="Level" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_n3nky")
+text = "Level: 0"
+
+[node name="MaxSpeed" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_n3nky")
+text = "Max Speed Achieved: 0"
+
+[node name="TotalDistance" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_n3nky")
+text = "Total Distance Travelled: 0"
+
+[node name="Multiplier" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_n3nky")
+text = "Multiplier: 0"
+
+[node name="Score" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_n3nky")
+theme_override_font_sizes/font_size = 30
+text = "Total Score: 0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 0
+offset_left = 117.0
+offset_top = 346.0
+offset_right = 539.0
+offset_bottom = 397.0
+theme_override_constants/separation = 50
+
+[node name="TryAgain" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 2
+focus_neighbor_right = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Quit")
+theme = ExtResource("1_n3nky")
+text = "Try Again"
+
+[node name="Quit" type="Button" parent="HBoxContainer"]
+process_mode = 3
+layout_mode = 2
+focus_neighbor_left = NodePath("../TryAgain")
+focus_next = NodePath("../TryAgain")
+focus_previous = NodePath("../TryAgain")
+theme = ExtResource("1_n3nky")
+text = "Menu"
+
+[node name="EndReason" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 135.0
+offset_top = 49.0
+offset_right = 519.0
+offset_bottom = 85.0
+theme = ExtResource("1_n3nky")
+theme_override_font_sizes/font_size = 30
+text = "Reason Run Ended"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="HBoxContainer/TryAgain" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="HBoxContainer/Quit" to="." method="_on_quit_pressed"]

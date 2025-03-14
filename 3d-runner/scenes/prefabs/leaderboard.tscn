@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ch5wdgnc5vt2p" path="res://scripts/scene/leaderboard.gd" id="1_mrg81"]
 [ext_resource type="Texture2D" uid="uid://bk64d3ol2qabf" path="res://assets/ui/Headless.png" id="2_wgq7h"]
-[ext_resource type="Theme" uid="uid://csl7vlf1mo2bl" path="res://themes/default_theme.tres" id="3_8lgqg"]
+[ext_resource type="Theme" uid="uid://csl7vlf1mo2bl" path="res://assets/themes/default_theme.tres" id="3_8lgqg"]
 
 [node name="Leaderboard" type="Control"]
 layout_mode = 3

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c06sy114dwude" path="res://scripts/scene/welcome_screen.gd" id="1_nqt2p"]
 [ext_resource type="Texture2D" uid="uid://bk64d3ol2qabf" path="res://assets/ui/Headless.png" id="2_tahvw"]
-[ext_resource type="Theme" uid="uid://csl7vlf1mo2bl" path="res://themes/default_theme.tres" id="3_lkyy7"]
+[ext_resource type="Theme" uid="uid://csl7vlf1mo2bl" path="res://assets/themes/default_theme.tres" id="3_lkyy7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6diwj"]
 texture = ExtResource("2_tahvw")
@@ -44,7 +44,8 @@ offset_bottom = 331.0
 bbcode_enabled = true
 text = "[b]Move Left[/b]     	|		A, ←, Joypad left stick left, Joypad D-Pad left
 [b]Move Right[/b]   	|		D, →, Joypad left stick right, Joypad D-Pad right
-[b]Jump[/b]              		|		Space, Joypad Button 0"
+[b]Jump[/b]              		|		Space, Joypad Button 0
+[b]Pause[/b]					| 		Esc"
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0

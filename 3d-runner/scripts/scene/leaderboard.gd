@@ -1,6 +1,6 @@
 extends Control
 
-const DEFAULT_THEME = preload("res://themes/default_theme.tres")
+const DEFAULT_THEME = preload("res://assets/themes/default_theme.tres")
 
 @onready var players_container: VBoxContainer = %PlayersContainer
 @onready var scores_container: VBoxContainer = %ScoresContainer

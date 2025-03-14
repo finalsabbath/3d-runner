@@ -41,7 +41,7 @@ func retry() -> void:
 
 func run_end(reason: String) -> void:
 	get_tree().paused = true
-	ui.show_end_screen(reason)
+	ui.end_screen.show_end_screen(reason)
 
 func _check_distance_milestones() -> void:
 	var end_distance = 100 + ( 100* (GameState.current_level * GameState.current_level))

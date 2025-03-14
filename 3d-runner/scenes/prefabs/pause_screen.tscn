@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://br0vqj0fw6bj1"]
 
-[ext_resource type="Theme" uid="uid://csl7vlf1mo2bl" path="res://themes/default_theme.tres" id="1_g5jv1"]
+[ext_resource type="Theme" uid="uid://csl7vlf1mo2bl" path="res://assets/themes/default_theme.tres" id="1_g5jv1"]
 [ext_resource type="Script" uid="uid://dd7cuokn2dwj1" path="res://scripts/scene/pause_screen.gd" id="1_ppigr"]
 
 [node name="PauseScreen" type="Control"]
