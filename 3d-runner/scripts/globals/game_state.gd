@@ -26,6 +26,7 @@ var multiplier: float = 0
 var score: int = 0
 var player_speed: float = 5.0
 var terrain_velocity: float = 5.0
+var game_paused: bool = false
 
 # Persistant values
 var player_name: String

@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://sbfihikmqibm" path="res://scripts/scene/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://bk64d3ol2qabf" path="res://assets/ui/Headless.png" id="2_wu84c"]
-[ext_resource type="PackedScene" uid="uid://mpo2eybcsqsj" path="res://scenes/welcome_screen.tscn" id="3_tbmy8"]
+[ext_resource type="PackedScene" uid="uid://mpo2eybcsqsj" path="res://scenes/prefabs/welcome_screen.tscn" id="3_tbmy8"]
 [ext_resource type="Texture2D" uid="uid://ifjt5l6e6wxh" path="res://assets/art/mad-rush-new-menu-logo.png" id="3_wu84c"]
 [ext_resource type="Theme" uid="uid://csl7vlf1mo2bl" path="res://themes/default_theme.tres" id="4_8ln24"]
 [ext_resource type="AudioStream" uid="uid://c0w7takgfes7x" path="res://assets/music/Sketchbook 2024-09-04_LOOP.ogg" id="4_wu84c"]
-[ext_resource type="PackedScene" uid="uid://cfc5efco2j6hs" path="res://scenes/leaderboard.tscn" id="6_rtw2f"]
+[ext_resource type="PackedScene" uid="uid://cfc5efco2j6hs" path="res://scenes/prefabs/leaderboard.tscn" id="6_rtw2f"]
 [ext_resource type="PackedScene" uid="uid://daoqmkv1p11ki" path="res://scenes/prefabs/name_entry.tscn" id="7_oa1go"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bqqt6"]
@@ -44,17 +44,17 @@ grow_vertical = 2
 texture = ExtResource("2_wu84c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(579.5, 262.462)
+position = Vector2(573, 240)
 scale = Vector2(2.46441, 1.83137)
 texture = ExtResource("3_wu84c")
 
 [node name="Start" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 464.0
-offset_top = 479.0
-offset_right = 675.0
-offset_bottom = 545.0
+offset_left = 466.0
+offset_top = 466.0
+offset_right = 677.0
+offset_bottom = 532.0
 focus_neighbor_right = NodePath("../Quit")
 focus_next = NodePath("../Quit")
 focus_previous = NodePath("../Quit")

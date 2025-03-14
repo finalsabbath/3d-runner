@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b001uqla7yi5b"]
+[gd_scene load_steps=4 format=3 uid="uid://b001uqla7yi5b"]
 
 [ext_resource type="Script" uid="uid://glcd86pvukvb" path="res://scripts/scene/ui.gd" id="1_nt7q6"]
 [ext_resource type="Theme" uid="uid://csl7vlf1mo2bl" path="res://themes/default_theme.tres" id="2_6ikxf"]
+[ext_resource type="PackedScene" uid="uid://br0vqj0fw6bj1" path="res://scenes/prefabs/pause_screen.tscn" id="3_tpigj"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -12,7 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nt7q6")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="TopUI" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -23,24 +24,24 @@ offset_bottom = 40.0
 grow_horizontal = 2
 theme_override_constants/separation = 20
 
-[node name="Level" type="Label" parent="HBoxContainer"]
+[node name="Level" type="Label" parent="TopUI"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("2_6ikxf")
 
-[node name="Speed" type="Label" parent="HBoxContainer"]
+[node name="Speed" type="Label" parent="TopUI"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("2_6ikxf")
 text = "Speed: 0"
 
-[node name="Distance" type="Label" parent="HBoxContainer"]
+[node name="Distance" type="Label" parent="TopUI"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("2_6ikxf")
 text = "Distance: 0"
 
-[node name="Multiplier" type="Label" parent="HBoxContainer"]
+[node name="Multiplier" type="Label" parent="TopUI"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("2_6ikxf")
@@ -134,7 +135,7 @@ offset_bottom = 27.0
 theme = ExtResource("2_6ikxf")
 text = "Best: 0"
 
-[node name="Label" type="Label" parent="."]
+[node name="Version" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0.490196)
 layout_mode = 0
 offset_left = 1055.0
@@ -142,6 +143,10 @@ offset_top = 620.0
 offset_right = 1148.0
 offset_bottom = 643.0
 text = "version 0.02"
+
+[node name="PauseScreen" parent="." instance=ExtResource("3_tpigj")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="EndScreen/HBoxContainer/TryAgain" to="." method="_on_try_again_pressed"]
 [connection signal="pressed" from="EndScreen/HBoxContainer/Quit" to="." method="_on_quit_pressed"]

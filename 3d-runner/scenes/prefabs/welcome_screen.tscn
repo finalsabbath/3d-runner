@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://mpo2eybcsqsj"]
 
-[ext_resource type="Script" uid="uid://c06sy114dwude" path="res://scenes/welcome_screen.gd" id="1_l7j8c"]
-[ext_resource type="Theme" uid="uid://csl7vlf1mo2bl" path="res://themes/default_theme.tres" id="1_uthqw"]
-[ext_resource type="Texture2D" uid="uid://bk64d3ol2qabf" path="res://assets/ui/Headless.png" id="2_gbctg"]
+[ext_resource type="Script" uid="uid://c06sy114dwude" path="res://scripts/scene/welcome_screen.gd" id="1_nqt2p"]
+[ext_resource type="Texture2D" uid="uid://bk64d3ol2qabf" path="res://assets/ui/Headless.png" id="2_tahvw"]
+[ext_resource type="Theme" uid="uid://csl7vlf1mo2bl" path="res://themes/default_theme.tres" id="3_lkyy7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6diwj"]
-texture = ExtResource("2_gbctg")
+texture = ExtResource("2_tahvw")
 modulate_color = Color(0.899258, 0.899258, 0.899258, 1)
 
 [node name="WelcomeScreen" type="Control"]
@@ -15,7 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_l7j8c")
+script = ExtResource("1_nqt2p")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -52,7 +52,7 @@ offset_left = 159.0
 offset_top = 22.0
 offset_right = 626.0
 offset_bottom = 58.0
-theme = ExtResource("1_uthqw")
+theme = ExtResource("3_lkyy7")
 theme_override_font_sizes/font_size = 30
 text = "Welcome to Mad Rush"
 
@@ -62,7 +62,7 @@ offset_left = 272.0
 offset_top = 353.0
 offset_right = 456.0
 offset_bottom = 397.0
-theme = ExtResource("1_uthqw")
+theme = ExtResource("3_lkyy7")
 text = "Lets Go!"
 
 [connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

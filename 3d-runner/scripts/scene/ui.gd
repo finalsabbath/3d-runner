@@ -17,6 +17,7 @@ class_name UI
 @onready var score: Label = $EndScreen/VBoxContainer/Score
 @onready var level_label: Label = %Level
 @onready var try_again: Button = %TryAgain
+@onready var pause_screen: Control = $PauseScreen
 
 func _physics_process(_delta: float) -> void:
 	if not ready:
@@ -27,6 +28,12 @@ func _physics_process(_delta: float) -> void:
 	best.text = "Best: " +  str(snappedi(GameState.best,1))
 	multiplier.text = "Multiplier: " +  str(snappedf(GameState.multiplier,0.1))
 
+func _process(_delta: float) -> void:
+	if Input.is_action_pressed("ui_cancel") and !GameState.game_paused:
+		get_tree().paused = true
+		pause_screen.show()
+		GameState.game_paused = true
+		
 
 func _on_try_again_pressed() -> void:
 	get_tree().paused = false

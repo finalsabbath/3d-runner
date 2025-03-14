@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://br0vqj0fw6bj1"]
+
+[ext_resource type="Theme" uid="uid://csl7vlf1mo2bl" path="res://themes/default_theme.tres" id="1_g5jv1"]
+[ext_resource type="Script" uid="uid://dd7cuokn2dwj1" path="res://scripts/scene/pause_screen.gd" id="1_ppigr"]
+
+[node name="PauseScreen" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ppigr")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 181.0
+offset_right = 788.0
+offset_bottom = 437.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 47.0
+offset_right = 353.0
+offset_bottom = 105.0
+theme = ExtResource("1_g5jv1")
+theme_override_font_sizes/font_size = 50
+text = "Paused"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 348.0
+offset_right = 623.0
+offset_bottom = 392.0
+theme = ExtResource("1_g5jv1")
+text = "Resume"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
