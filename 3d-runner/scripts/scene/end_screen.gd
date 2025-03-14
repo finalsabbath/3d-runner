@@ -1,6 +1,6 @@
 extends Panel
 
-#End Screen
+#End Screen object references
 @onready var end_reason: Label = %EndReason
 @onready var max_speed: Label = $VBoxContainer/MaxSpeed
 @onready var total_distance: Label = $VBoxContainer/TotalDistance
@@ -8,8 +8,6 @@ extends Panel
 @onready var score: Label = $VBoxContainer/Score
 @onready var try_again: Button = %TryAgain
 @onready var multiplier: Label = $VBoxContainer/Multiplier
-
-
 
 func show_end_screen(reason: String) -> void:
 	end_reason.text = reason

@@ -12,9 +12,7 @@ const BARRIER_LIMIT: int = 2
 const PICKUP = preload("res://scenes/prefabs/pickup.tscn")
 
 var count_starter_blocks = 0
-
 var terrain_belt: Array[Node3D] = []
-
 var last_obstacle
 
 @export var num_terrain_blocks = 4

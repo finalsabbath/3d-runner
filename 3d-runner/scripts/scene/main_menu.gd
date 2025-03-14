@@ -25,8 +25,6 @@ func _on_start_pressed() -> void:
 		welcome_screen.show()
 		GameState.welcome_seen = true
 	
-
-
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 

@@ -17,9 +17,7 @@ func _physics_process(delta: float) -> void:
 	if not ready:
 		await ready
 	var master_bus_volume = (AudioServer.get_bus_peak_volume_left_db(0,0) + AudioServer.get_bus_peak_volume_right_db(0,0)) / 2
-	#world_environment.environment.background_energy_multiplier = (30 + master_bus_volume) * (delta * 5) -1
 	world_environment.environment.glow_bloom = ((30 + master_bus_volume) * (delta * 5))/4
-	#print(spectrum.get_magnitude_for_frequency_range(0,1000,1))
 	_check_distance_milestones()
 	_update_environment()
 
