@@ -57,10 +57,10 @@ offset_bottom = 535.0
 
 [node name="Best" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1002.0
-offset_top = 4.0
-offset_right = 1081.0
-offset_bottom = 27.0
+offset_left = 994.0
+offset_top = 8.0
+offset_right = 1073.0
+offset_bottom = 31.0
 theme = ExtResource("2_6ikxf")
 text = "Best: 0"
 
@@ -71,7 +71,7 @@ offset_left = 1055.0
 offset_top = 620.0
 offset_right = 1148.0
 offset_bottom = 643.0
-text = "version 0.02"
+text = "version 0.03"
 
 [node name="PauseScreen" parent="." instance=ExtResource("3_tpigj")]
 visible = false

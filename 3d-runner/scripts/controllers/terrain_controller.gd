@@ -15,6 +15,8 @@ var count_starter_blocks = 0
 
 var terrain_belt: Array[Node3D] = []
 
+var last_obstacle
+
 @export var num_terrain_blocks = 4
 
 func _ready() -> void:
@@ -71,10 +73,14 @@ func _add_obstacles(block: Node3D) -> void:
 		_add_pits(block,num_obstacles)
 		for i in range(num_obstacles):
 			var selected_obstacle = GameState.obstacles.pick_random()
+			
+			# Try not to make later levels impossible
 			if "barrier" in selected_obstacle.resource_path:
 				barrier_count +=1
-			if barrier_count > BARRIER_LIMIT:
-				selected_obstacle = GameState.obstacles_no_barrier.pick_random()
+				if barrier_count > BARRIER_LIMIT or "barrier" in last_obstacle.resource_path:
+					selected_obstacle = GameState.obstacles_no_barrier.pick_random()
+			last_obstacle = selected_obstacle
+			
 			var new_obstacle = selected_obstacle.instantiate()
 			new_obstacle.position.x = _get_obstacle_position(new_obstacle.type)
 			var separation: float = TERRAIN_LENGTH/num_obstacles/2
@@ -82,6 +88,7 @@ func _add_obstacles(block: Node3D) -> void:
 			#_spawn_pickup(new_obstacle.position)
 			new_obstacle.add_to_group("death_blocks")
 			block.add_child(new_obstacle)
+			
 	
 func _add_pits(block: Node3D,num_obstacles: int) -> void:
 	for i in range(num_obstacles):
