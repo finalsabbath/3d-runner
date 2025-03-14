@@ -7,6 +7,5 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		body.process_pickup(value)
 		queue_free()
 		
-
 func _physics_process(delta: float) -> void:
 	self.rotation.y +=2 *delta

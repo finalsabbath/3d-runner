@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy7246qt6328y"]
+[gd_scene load_steps=5 format=3 uid="uid://dy7246qt6328y"]
 
 [ext_resource type="Script" uid="uid://dcbnisljy5htt" path="res://scripts/scene/player.gd" id="1_3vyb7"]
+[ext_resource type="AudioStream" uid="uid://cpa0cq08y52io" path="res://assets/sfx/Bleep_01.ogg" id="2_tou0u"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e5uuo"]
 radius = 0.3
@@ -19,3 +20,9 @@ mesh = SubResource("CapsuleMesh_nnsk1")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.999668, -0.0257583, 0, 0.0257583, 0.999668, 0, 0.572753, 0.460871)
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_tou0u")
+volume_db = 5.0
+pitch_scale = 3.0
+bus = &"SFX"

@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var isplayer: bool = true
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var camera_3d: Camera3D = $Camera3D
+@onready var sfx: AudioStreamPlayer = $SFX
 
 var target_velocity = Vector3.ZERO
 var sliding: bool = false
@@ -41,3 +42,4 @@ func _physics_process(delta: float) -> void:
 
 func process_pickup(value: float) -> void:
 	GameState.multiplier += value
+	sfx.play()
