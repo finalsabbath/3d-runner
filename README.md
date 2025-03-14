@@ -53,6 +53,7 @@ Given obstacles are placed randomly it can lead to some extremely difficult or s
 - **Move Left** | A, ←, Joypad left stick left, Joypad D-Pad left
 - **Move Right** | D, →, Joypad left stick right, Joypad D-Pad right
 - **Jump** | Space, Joypad Button 0
+- **Pause** | Esc
 
 ## Acknowledgments
 
