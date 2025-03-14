@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://mpo2eybcsqsj"]
+
+[ext_resource type="Script" uid="uid://c06sy114dwude" path="res://scenes/welcome_screen.gd" id="1_l7j8c"]
+[ext_resource type="Theme" uid="uid://csl7vlf1mo2bl" path="res://themes/default_theme.tres" id="1_uthqw"]
+[ext_resource type="Texture2D" uid="uid://bk64d3ol2qabf" path="res://assets/ui/Headless.png" id="2_gbctg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6diwj"]
+texture = ExtResource("2_gbctg")
+modulate_color = Color(0.899258, 0.899258, 0.899258, 1)
+
+[node name="WelcomeScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l7j8c")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 95.0
+offset_right = 951.0
+offset_bottom = 535.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_6diwj")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 84.0
+offset_right = 677.0
+offset_bottom = 195.0
+text = "Mad Rush is an endless runner where your goal is to rack up as many points as possible to try to get to the top of the leaderboard.
+
+You will accumulate score by surviving and collecting multiplier rings."
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 220.0
+offset_right = 671.0
+offset_bottom = 331.0
+bbcode_enabled = true
+text = "[b]Move Left[/b]     	|		A, ←, Joypad left stick left, Joypad D-Pad left
+[b]Move Right[/b]   	|		D, →, Joypad left stick right, Joypad D-Pad right
+[b]Jump[/b]              		|		Space, Joypad Button 0"
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 22.0
+offset_right = 626.0
+offset_bottom = 58.0
+theme = ExtResource("1_uthqw")
+theme_override_font_sizes/font_size = 30
+text = "Welcome to Mad Rush"
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 353.0
+offset_right = 456.0
+offset_bottom = 397.0
+theme = ExtResource("1_uthqw")
+text = "Lets Go!"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dksifru4vppkf"]
+[gd_scene load_steps=10 format=3 uid="uid://dksifru4vppkf"]
 
 [ext_resource type="Script" uid="uid://sbfihikmqibm" path="res://scripts/scene/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://bk64d3ol2qabf" path="res://assets/ui/Headless.png" id="2_wu84c"]
+[ext_resource type="PackedScene" uid="uid://mpo2eybcsqsj" path="res://scenes/welcome_screen.tscn" id="3_tbmy8"]
 [ext_resource type="Texture2D" uid="uid://ifjt5l6e6wxh" path="res://assets/art/mad-rush-new-menu-logo.png" id="3_wu84c"]
 [ext_resource type="Theme" uid="uid://csl7vlf1mo2bl" path="res://themes/default_theme.tres" id="4_8ln24"]
 [ext_resource type="AudioStream" uid="uid://c0w7takgfes7x" path="res://assets/music/Sketchbook 2024-09-04_LOOP.ogg" id="4_wu84c"]
@@ -50,22 +51,23 @@ texture = ExtResource("3_wu84c")
 [node name="Start" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 469.0
-offset_top = 537.0
-offset_right = 627.0
-offset_bottom = 590.0
+offset_left = 464.0
+offset_top = 479.0
+offset_right = 675.0
+offset_bottom = 545.0
 focus_neighbor_right = NodePath("../Quit")
 focus_next = NodePath("../Quit")
 focus_previous = NodePath("../Quit")
 theme = ExtResource("4_8ln24")
+theme_override_font_sizes/font_size = 50
 text = "Start"
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 937.0
-offset_top = 534.0
-offset_right = 1054.0
-offset_bottom = 587.0
+offset_left = 982.0
+offset_top = 557.0
+offset_right = 1099.0
+offset_bottom = 610.0
 focus_neighbor_left = NodePath("../Start")
 focus_next = NodePath("../Start")
 focus_previous = NodePath("../Start")
@@ -74,10 +76,10 @@ text = "Quit"
 
 [node name="Leaderboard" type="Button" parent="."]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 536.0
-offset_right = 382.0
-offset_bottom = 589.0
+offset_left = 43.0
+offset_top = 554.0
+offset_right = 385.0
+offset_bottom = 607.0
 focus_neighbor_left = NodePath("../Start")
 focus_next = NodePath("../Start")
 focus_previous = NodePath("../Start")
@@ -99,6 +101,14 @@ offset_left = -8.0
 offset_top = 5.0
 offset_right = -8.0
 offset_bottom = 5.0
+
+[node name="WelcomeScreen" parent="." instance=ExtResource("3_tbmy8")]
+visible = false
+layout_mode = 1
+offset_left = 8.0
+offset_top = 18.0
+offset_right = 8.0
+offset_bottom = 18.0
 
 [node name="NameEntry" parent="." instance=ExtResource("7_oa1go")]
 visible = false

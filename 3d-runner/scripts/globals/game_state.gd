@@ -32,6 +32,7 @@ var player_name: String
 var best: float = 0
 var best_id: String
 var setup_complete: bool = false
+var welcome_seen: bool = true
 
 # Terrain generation arrays
 var terrainBlocks: Array = []
@@ -112,6 +113,7 @@ func save_data() -> void:
 func load_data():
 	if config.load(SAVE_PATH) != OK:
 		set_and_save()
+		welcome_seen = false
 	
 	player_name = config.get_value("Player","name", 1000)
 	best = config.get_value("Player","best", 1000)

@@ -5,6 +5,7 @@ extends Control
 @onready var background: TextureRect = $Background
 @onready var leaderboard_panel: Control = $LeaderboardPanel
 @onready var name_entry: Control = $NameEntry
+@onready var welcome_screen: Control = $WelcomeScreen
 
 var color_num: int = 0
 var next_color = GameState.colors[0]
@@ -18,7 +19,12 @@ func _ready() -> void:
 		name_entry.show()
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file(GameState.WORLD_SCENE)
+	if GameState.welcome_seen:
+		get_tree().change_scene_to_file(GameState.WORLD_SCENE)
+	else:
+		welcome_screen.show()
+		GameState.welcome_seen = true
+	
 
 
 func _on_quit_pressed() -> void:

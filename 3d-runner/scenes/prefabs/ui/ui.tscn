@@ -134,5 +134,14 @@ offset_bottom = 27.0
 theme = ExtResource("2_6ikxf")
 text = "Best: 0"
 
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.490196)
+layout_mode = 0
+offset_left = 1055.0
+offset_top = 620.0
+offset_right = 1148.0
+offset_bottom = 643.0
+text = "version 0.02"
+
 [connection signal="pressed" from="EndScreen/HBoxContainer/TryAgain" to="." method="_on_try_again_pressed"]
 [connection signal="pressed" from="EndScreen/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
