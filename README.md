@@ -42,7 +42,7 @@ Given obstacles are placed randomly it can lead to some extremely difficult or s
 
 <a id="built-with"></a>
 
-- Game Engine - Godotgit
+- Game Engine - Godot
 - Graphics - Aesprite, GIMP
 - Leaderboard - SilentWolf
 
