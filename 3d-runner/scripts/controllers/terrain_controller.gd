@@ -25,20 +25,20 @@ func _physics_process(delta: float) -> void:
 		await ready
 	_progress_terrain(delta)
 	GameState.distance += GameState.terrain_velocity * delta
-	GameState.terrain_velocity += (delta*delta) * VELOCITY_MULT
+	GameState.terrain_velocity += (delta * delta) * VELOCITY_MULT
 
 func _init_blocks(number_of_blocks: int) -> void:
 	for block_index in number_of_blocks:
 		var block = GameState.terrainBlocks.pick_random().instantiate()
 		
 		if block_index == 0:
-			block.position.z = TERRAIN_LENGTH/2
+			block.position.z = TERRAIN_LENGTH / 2
 		else:
 			if count_starter_blocks >= STARTER_BLOCKS:
-				_append_to_far_edge(terrain_belt[block_index-1], block,true)
+				_append_to_far_edge(terrain_belt[block_index - 1], block, true)
 			else:
-				count_starter_blocks +=1
-				_append_to_far_edge(terrain_belt[block_index-1], block,false)
+				count_starter_blocks += 1
+				_append_to_far_edge(terrain_belt[block_index - 1], block, false)
 		
 		terrain_belt.append(block)
 		add_child(block)
@@ -52,7 +52,7 @@ func _progress_terrain(delta: float) -> void:
 		var first_terrain = terrain_belt.pop_front()
 
 		var block = GameState.terrainBlocks.pick_random().instantiate()
-		_append_to_far_edge(last_terrain, block,true)
+		_append_to_far_edge(last_terrain, block, true)
 		add_child(block)
 		terrain_belt.append(block)
 		first_terrain.queue_free()
@@ -68,13 +68,14 @@ func _add_obstacles(block: Node3D) -> void:
 	if num_obstacles > MAX_OBSTACLES:
 		num_obstacles = MAX_OBSTACLES
 	if !GameState.debug_enabled:
-		_add_pits(block,num_obstacles)
+		_add_pits(block, num_obstacles)
 		for i in range(num_obstacles):
 			var selected_obstacle = GameState.obstacles.pick_random()
 			
 			# Try not to make later levels impossible
 			if "barrier" in selected_obstacle.resource_path:
-				barrier_count +=1
+				barrier_count += 1
+				#ensure last_obstacle exists
 				if last_obstacle:
 					if barrier_count > BARRIER_LIMIT or "barrier" in last_obstacle.resource_path:
 						selected_obstacle = GameState.obstacles_no_barrier.pick_random()
@@ -82,23 +83,23 @@ func _add_obstacles(block: Node3D) -> void:
 			
 			var new_obstacle = selected_obstacle.instantiate()
 			new_obstacle.position.x = _get_obstacle_position(new_obstacle.type)
-			var separation: float = TERRAIN_LENGTH/num_obstacles/2
-			new_obstacle.position.z -= (i+1) * separation
+			var separation: float = TERRAIN_LENGTH / num_obstacles / 2
+			new_obstacle.position.z -= (i + 1) * separation
 			#_spawn_pickup(new_obstacle.position)
 			new_obstacle.add_to_group("death_blocks")
 			block.add_child(new_obstacle)
 			
 	
-func _add_pits(block: Node3D,num_obstacles: int) -> void:
+func _add_pits(block: Node3D, num_obstacles: int) -> void:
 	for i in range(num_obstacles):
-		var remove = randi_range(0,15)
+		var remove = randi_range(0, 15)
 		var remove_panel = block.get_children()[remove]
 		var pickup_pos = remove_panel.position
 		pickup_pos.y += 2
 		_spawn_pickup(pickup_pos, block)
 		remove_panel.queue_free()
 		
-func _spawn_pickup(pos: Vector3,block: Node3D) -> void:
+func _spawn_pickup(pos: Vector3, block: Node3D) -> void:
 	var new_pickup = PICKUP.instantiate()
 	new_pickup.position = pos
 	block.add_child(new_pickup)
@@ -113,6 +114,6 @@ func _get_obstacle_position(type) -> float:
 			options.append(0)
 			pos_x = options[randi() % options.size()]
 		Enums.ObstacleType.BOX:
-			pos_x = randf_range((-TERRAIN_WIDTH/2)+1,(TERRAIN_WIDTH/2)-1)
+			pos_x = randf_range((-TERRAIN_WIDTH / 2) + 1, (TERRAIN_WIDTH / 2) - 1)
 		
 	return pos_x

@@ -9,7 +9,7 @@ class_name World
 var spectrum
 
 func _ready() -> void:
-	reset_stats()
+	reset_stats() # ensure stats are reset
 	_connect_signals()
 	_set_level()
 	#_setup_music_analyser()
@@ -17,8 +17,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not ready:
 		await ready
-	var master_bus_volume = (AudioServer.get_bus_peak_volume_left_db(0,0) + AudioServer.get_bus_peak_volume_right_db(0,0)) / 2
-	world_environment.environment.glow_bloom = ((30 + master_bus_volume) * (delta * 5))/4
+	var master_bus_volume = (AudioServer.get_bus_peak_volume_left_db(0, 0) + AudioServer.get_bus_peak_volume_right_db(0, 0)) / 2
+	world_environment.environment.glow_bloom = ((30 + master_bus_volume) * (delta * 5)) / 4
 	_check_distance_milestones()
 	_update_environment()
 
@@ -46,7 +46,7 @@ func run_end(reason: String) -> void:
 	ui.end_screen.show_end_screen(reason)
 
 func _check_distance_milestones() -> void:
-	var end_distance = 100 + ( 100* (GameState.current_level * GameState.current_level))
+	var end_distance = 100 + (100 * (GameState.current_level * GameState.current_level))
 	if GameState.distance > end_distance and GameState.current_level < GameState.MAX_LEVEL:
 		GameState.current_level += 1
 		_set_level()
