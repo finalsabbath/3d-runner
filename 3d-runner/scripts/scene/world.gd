@@ -9,6 +9,7 @@ class_name World
 var spectrum
 
 func _ready() -> void:
+	reset_stats()
 	_connect_signals()
 	_set_level()
 	#_setup_music_analyser()
@@ -28,13 +29,16 @@ func _setup_music_analyser() -> void:
 func _connect_signals() -> void:
 	EventBus.retry.connect(retry)
 	EventBus.run_end.connect(run_end)
-	
-func retry() -> void:
+
+func reset_stats() -> void:
 	GameState.distance = 0
 	GameState.terrain_velocity = GameState.STARTING_SPEED
 	GameState.current_level = 0
 	GameState.player_speed = 5.0
 	GameState.multiplier = 0
+
+func retry() -> void:
+	reset_stats()
 	get_tree().reload_current_scene()
 
 func run_end(reason: String) -> void:

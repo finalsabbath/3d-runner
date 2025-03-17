@@ -75,8 +75,9 @@ func _add_obstacles(block: Node3D) -> void:
 			# Try not to make later levels impossible
 			if "barrier" in selected_obstacle.resource_path:
 				barrier_count +=1
-				if barrier_count > BARRIER_LIMIT or "barrier" in last_obstacle.resource_path:
-					selected_obstacle = GameState.obstacles_no_barrier.pick_random()
+				if last_obstacle:
+					if barrier_count > BARRIER_LIMIT or "barrier" in last_obstacle.resource_path:
+						selected_obstacle = GameState.obstacles_no_barrier.pick_random()
 			last_obstacle = selected_obstacle
 			
 			var new_obstacle = selected_obstacle.instantiate()
