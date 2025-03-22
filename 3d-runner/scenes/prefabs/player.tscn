@@ -4,7 +4,8 @@
 [ext_resource type="AudioStream" uid="uid://cpa0cq08y52io" path="res://assets/sfx/Bleep_01.ogg" id="2_tou0u"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e5uuo"]
-radius = 0.3
+radius = 0.35
+height = 2.5
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_nnsk1"]
 
@@ -19,7 +20,7 @@ visible = false
 mesh = SubResource("CapsuleMesh_nnsk1")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.999668, -0.0257583, 0, 0.0257583, 0.999668, 0, 0.572753, 0.460871)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.450772, 0.472269)
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_tou0u")
