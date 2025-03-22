@@ -8,6 +8,6 @@ func _on_ok_pressed() -> void:
 		GameState.set_and_save()
 		hide()
 
-func _validate_name(name_entered: String) -> bool:
+func _validate_name(_name_entered: String) -> bool:
 	# do something here to try to weed out inapproprate language
 	return true
