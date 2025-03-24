@@ -9,10 +9,11 @@ const NUM_LEVELS:int = 6
 
 # Paths
 const MUSIC_PATH = "res://assets/music/levels"
-const WORLD_SCENE = "res://scenes/world.tscn"
-const MAIN_MENU_SCENE = "res://scenes/main_menu.tscn"
-const TERRAIN_BLOCKS_PATH = "res://scenes/prefabs/terrain_blocks"
-const OBSTACLES_PATH = "res://scenes/prefabs/obstacles"
+const WORLD_SCENE = "res://scenes/world/world.tscn"
+const MAIN_MENU_SCENE = "res://scenes/ui/main_menu/main_menu.tscn"
+const TERRAIN_BLOCKS_PATH = "res://scenes/terrain/terrain_blocks"
+const OBSTACLES_PATH = "res://scenes/terrain/obstacles"
+const PICKUP_PATH = preload("res://scenes/pickups/pickup.tscn")
 const SAVE_PATH = "user://player_data.cfg"
 
 # Set up configfile
@@ -58,29 +59,32 @@ func setup_game() -> void:
 func _load_music_tracks(target_path: String) -> void:
 	var dir = DirAccess.open(target_path)
 	for scene_path in dir.get_files():
-		if ".import" in scene_path:
-			scene_path = scene_path.trim_suffix(".import")
-			print("Loading music track: " + target_path + "/" + scene_path)
-			var new_path: String = target_path + "/" + scene_path
-			music_tracks.append(new_path)
+		if ".gd" not in scene_path:
+			if ".import" in scene_path:
+				scene_path = scene_path.trim_suffix(".import")
+				print("Loading music track: " + target_path + "/" + scene_path)
+				var new_path: String = target_path + "/" + scene_path
+				music_tracks.append(new_path)
 
 func _load_terrain(target_path: String) -> void:
 	var dir = DirAccess.open(target_path)
 	for scene_path in dir.get_files():
-		if ".remap" in scene_path:
-			scene_path = scene_path.trim_suffix('.remap')
-		print("Loading terrian block scene: " + target_path + "/" + scene_path)
-		terrainBlocks.append(load(target_path + "/" + scene_path))
+		if ".gd" not in scene_path:
+			if ".remap" in scene_path:
+				scene_path = scene_path.trim_suffix('.remap')
+			print("Loading terrian block scene: " + target_path + "/" + scene_path)
+			terrainBlocks.append(load(target_path + "/" + scene_path))
 
 func _load_obstacles(target_path: String) -> void:
 	var dir = DirAccess.open(target_path)
 	for scene_path in dir.get_files():
-		if ".remap" in scene_path:
-			scene_path = scene_path.trim_suffix('.remap')
-		print("Loading obstacle scene: " + target_path + "/" + scene_path)
-		obstacles.append(load(target_path + "/" + scene_path))
-		if "barrier" not in scene_path:
-			obstacles_no_barrier.append(load(target_path + "/" + scene_path))
+		if ".gd" not in scene_path:
+			if ".remap" in scene_path:
+				scene_path = scene_path.trim_suffix('.remap')
+			print("Loading obstacle scene: " + target_path + "/" + scene_path)
+			obstacles.append(load(target_path + "/" + scene_path))
+			if "barrier" not in scene_path:
+				obstacles_no_barrier.append(load(target_path + "/" + scene_path))
 
 
 func configure_leaderboard() -> void:

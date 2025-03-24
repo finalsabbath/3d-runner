@@ -9,7 +9,7 @@ const STARTER_BLOCKS: int = 1
 const MAX_OBSTACLES: int = 5
 const BARRIER_LIMIT: int = 2
 
-const PICKUP = preload("res://scenes/prefabs/pickup.tscn")
+
 
 var count_starter_blocks = 0
 var terrain_belt: Array[Node3D] = []
@@ -100,7 +100,7 @@ func _add_pits(block: Node3D, num_obstacles: int) -> void:
 		remove_panel.queue_free()
 		
 func _spawn_pickup(pos: Vector3, block: Node3D) -> void:
-	var new_pickup = PICKUP.instantiate()
+	var new_pickup = GameState.PICKUP_PATH.instantiate()
 	new_pickup.position = pos
 	block.add_child(new_pickup)
 
