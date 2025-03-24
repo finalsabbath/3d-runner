@@ -18,11 +18,11 @@ var last_obstacle
 @export var num_terrain_blocks = 4
 
 func _ready() -> void:
+	set_physics_process(false)
 	_init_blocks(num_terrain_blocks)
+	set_physics_process(true)
 
 func _physics_process(delta: float) -> void:
-	if not ready:
-		await ready
 	_progress_terrain(delta)
 	GameState.distance += GameState.terrain_velocity * delta
 	GameState.terrain_velocity += (delta * delta) * VELOCITY_MULT

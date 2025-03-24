@@ -12,8 +12,8 @@ class_name UI
 @onready var level_label: Label = %Level
 
 func _physics_process(_delta: float) -> void:
-	if not ready:
-		await ready
+	#if not ready:
+		#await ready
 	distance.text = "Distance: " + str(snappedi(GameState.distance,1))
 	speed.text = "Speed: " + str(snappedi(GameState.terrain_velocity,1))
 	level_label.text = "Level: " + str(GameState.current_level+1)
