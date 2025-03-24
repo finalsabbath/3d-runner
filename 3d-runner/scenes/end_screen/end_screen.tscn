@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7g56ctbwgala"]
 
 [ext_resource type="Theme" uid="uid://csl7vlf1mo2bl" path="res://assets/themes/default_theme.tres" id="1_n3nky"]
-[ext_resource type="Script" uid="uid://dhg2n8dxqiocr" path="res://scripts/scene/end_screen.gd" id="1_uwoud"]
+[ext_resource type="Script" uid="uid://dhg2n8dxqiocr" path="res://scenes/end_screen/end_screen.gd" id="1_uwoud"]
 
 [node name="EndScreen" type="Panel"]
 offset_left = 259.0

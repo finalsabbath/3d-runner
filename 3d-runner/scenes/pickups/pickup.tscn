@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bnppik6bxdhhe"]
 
-[ext_resource type="Script" uid="uid://cyvorwt85hs0m" path="res://scripts/scene/pickup.gd" id="1_vxnv5"]
+[ext_resource type="Script" uid="uid://cyvorwt85hs0m" path="res://scenes/pickups/pickup.gd" id="1_vxnv5"]
 [ext_resource type="Shader" uid="uid://ba6pn6rx28bt0" path="res://assets/shaders/pickup.gdshader" id="2_j0uto"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vxnv5"]

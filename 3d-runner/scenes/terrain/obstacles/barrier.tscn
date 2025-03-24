@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bob7yquw52hvg"]
 
-[ext_resource type="Script" uid="uid://cdjnqj2wxbska" path="res://scripts/obstacles/barrier.gd" id="1_vke5d"]
+[ext_resource type="Script" uid="uid://cdjnqj2wxbska" path="res://scenes/terrain/obstacles/barrier.gd" id="1_vke5d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rrb2v"]
 size = Vector3(8, 10, 0.25)

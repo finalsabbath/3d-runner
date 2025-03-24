@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cefq80rjeaf1v"]
 
-[ext_resource type="PackedScene" uid="uid://b1xi5vibsdo4m" path="res://scenes/prefabs/terrain_panel.tscn" id="1_bqfpf"]
+[ext_resource type="PackedScene" uid="uid://b1xi5vibsdo4m" path="res://scenes/terrain/terrain_panel.tscn" id="1_bqfpf"]
 
 [node name="PitL" type="Node3D"]
 

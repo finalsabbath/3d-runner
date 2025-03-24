@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://o13dbq1lmrfm"]
 
-[ext_resource type="Script" uid="uid://4i866fvgfnrr" path="res://scripts/scene/world.gd" id="1_qfnet"]
-[ext_resource type="PackedScene" uid="uid://dy7246qt6328y" path="res://scenes/prefabs/player.tscn" id="2_qfnet"]
-[ext_resource type="PackedScene" uid="uid://0sprg6vnoira" path="res://scenes/components/terrain_controller.tscn" id="2_rwgxs"]
-[ext_resource type="PackedScene" uid="uid://b001uqla7yi5b" path="res://scenes/prefabs/ui/ui.tscn" id="3_4wyf3"]
-[ext_resource type="AudioStream" uid="uid://b6chy4dblnhb" path="res://assets/music/levels/Sketchbook 2024-08-07.ogg" id="4_71j4m"]
-[ext_resource type="PackedScene" uid="uid://c5qalmgsv6xta" path="res://scenes/prefabs/wall.tscn" id="7_i7141"]
+[ext_resource type="Script" uid="uid://4i866fvgfnrr" path="res://scenes/world/world.gd" id="1_t5ptc"]
+[ext_resource type="PackedScene" uid="uid://dy7246qt6328y" path="res://scenes/player/player.tscn" id="2_bq33v"]
+[ext_resource type="PackedScene" uid="uid://0sprg6vnoira" path="res://scenes/terrain_controller/terrain_controller.tscn" id="3_j2gmx"]
+[ext_resource type="AudioStream" uid="uid://b6chy4dblnhb" path="res://assets/music/levels/Sketchbook 2024-08-07.ogg" id="4_1yooq"]
+[ext_resource type="PackedScene" uid="uid://b001uqla7yi5b" path="res://scenes/ui/world_ui/world_ui.tscn" id="5_gb53w"]
+[ext_resource type="PackedScene" uid="uid://c5qalmgsv6xta" path="res://scenes/terrain/wall/wall.tscn" id="6_5qq27"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e5uuo"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -30,7 +30,7 @@ volumetric_fog_albedo = Color(0.245606, 0.06798, 0.0795562, 1)
 volumetric_fog_ambient_inject = 4.16
 
 [node name="World" type="Node3D"]
-script = ExtResource("1_qfnet")
+script = ExtResource("1_t5ptc")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rwgxs")
@@ -40,24 +40,24 @@ transform = Transform3D(-0.999314, 0.0319373, 0.0187667, 0.0110508, -0.226521, 0
 light_color = Color(0.952067, 0.344128, 0.358593, 1)
 shadow_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("2_qfnet")]
+[node name="Player" parent="." instance=ExtResource("2_bq33v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21607, 0.337935)
 
-[node name="TerrainController" parent="." instance=ExtResource("2_rwgxs")]
+[node name="TerrainController" parent="." instance=ExtResource("3_j2gmx")]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_71j4m")
+stream = ExtResource("4_1yooq")
 autoplay = true
 bus = &"Music"
 parameters/looping = true
 
-[node name="UI" parent="." instance=ExtResource("3_4wyf3")]
+[node name="UI" parent="." instance=ExtResource("5_gb53w")]
 
-[node name="Wall1" parent="." instance=ExtResource("7_i7141")]
+[node name="Wall1" parent="." instance=ExtResource("6_5qq27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.97635, 0, -3.93271)
 
-[node name="Wall2" parent="." instance=ExtResource("7_i7141")]
+[node name="Wall2" parent="." instance=ExtResource("6_5qq27")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.85543, 0, -174.48)
 
-[node name="Wall3" parent="." instance=ExtResource("7_i7141")]
+[node name="Wall3" parent="." instance=ExtResource("6_5qq27")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.237, -3.61528, -161.681)

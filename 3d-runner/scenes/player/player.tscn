@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dy7246qt6328y"]
 
-[ext_resource type="Script" uid="uid://dcbnisljy5htt" path="res://scripts/scene/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://dcbnisljy5htt" path="res://scenes/player/player.gd" id="1_3vyb7"]
 [ext_resource type="AudioStream" uid="uid://cpa0cq08y52io" path="res://assets/sfx/Bleep_01.ogg" id="2_tou0u"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e5uuo"]

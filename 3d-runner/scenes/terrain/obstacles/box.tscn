@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://v2mfsd0bkn2f"]
 
-[ext_resource type="Script" uid="uid://mxbj2y1xu6ab" path="res://scripts/obstacles/box.gd" id="1_j0rtk"]
+[ext_resource type="Script" uid="uid://mxbj2y1xu6ab" path="res://scenes/terrain/obstacles/box.gd" id="1_j0rtk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2a2jf"]
 

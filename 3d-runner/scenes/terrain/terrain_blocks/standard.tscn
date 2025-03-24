@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dm0jphsphjj5h"]
 
-[ext_resource type="PackedScene" uid="uid://b1xi5vibsdo4m" path="res://scenes/prefabs/terrain_panel.tscn" id="2_rwlvg"]
+[ext_resource type="PackedScene" uid="uid://b1xi5vibsdo4m" path="res://scenes/terrain/terrain_panel.tscn" id="2_rwlvg"]
 
 [node name="Terrain" type="Node3D"]
 

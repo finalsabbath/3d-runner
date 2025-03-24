@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://daoqmkv1p11ki"]
 
 [ext_resource type="Theme" uid="uid://csl7vlf1mo2bl" path="res://assets/themes/default_theme.tres" id="1_ifm6s"]
-[ext_resource type="Script" uid="uid://316qtylm3oa3" path="res://scripts/scene/name_entry.gd" id="1_t1n28"]
+[ext_resource type="Script" uid="uid://316qtylm3oa3" path="res://scenes/ui/name_entry/name_entry.gd" id="1_t1n28"]
 
 [node name="NameEntry" type="Control"]
 layout_mode = 3
