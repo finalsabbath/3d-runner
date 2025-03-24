@@ -64,3 +64,4 @@ Given obstacles are placed randomly it can lead to some extremely difficult or s
 - Prinbles for art assets : https://prinbles.itch.io/silent
 - GGBotNet for fonts : https://www.ggbot.net/fonts/
 - Bleeoop for SFX : https://bleeoop.itch.io/
+- DinoCrys for code critique - https://www.twitch.tv/dinocrys
