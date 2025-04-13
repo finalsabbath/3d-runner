@@ -74,7 +74,7 @@ offset_left = 1055.0
 offset_top = 620.0
 offset_right = 1148.0
 offset_bottom = 643.0
-text = "version 0.04"
+text = "version 0.05"
 
 [node name="PauseScreen" parent="." instance=ExtResource("3_tpigj")]
 visible = false
